@@ -1,29 +1,52 @@
-# Student Care Management 
+# Student Attendace Tracker 
 
-A web management tool that help teachers view, register, track and update student records.
-
-In light of the current pandemic situation, an additional data which is temperature checks for morning and afternoon are added. 
+A website that help teachers manage student attendance record.
 
 You may access the deployed website [here] (http). 
+
  
 ## UX
-This website is designed for teachers to manage their student records from registration, attendance tracker and updating list. 
+This website is designed for teachers to register the student, assign them to a class group, track each student's attendance and temperature, and update student records. The purpose of this website is for teacher to have access to the database where all records are inside. 
+
 
 **User Story**
-This idea came about when the student care where my son goes to recently implement a procedure meant for contact tracing. The teacher takes their temparature and writes it down on their record including the time they clocked in. 
-- As a teacher, I want them to perform attendance taking in minimal time. 
-- As a student 
+This idea came about when the student care where my son goes to implemented a safe entry procedure in light of the pandemic that the government imposed for all Student Cares. The teacher takes their temparature and writes it down on their file record. When the student leaves the place, they have access to this file record to write the time they logout. 
 
-**User Profile**
-Teachers
+I want to improve this process to be digitised so that teacher can easily record the student's temperature and clock in time. 
+
+
+**User Profiles**
+
+#### Teachers
 - Aged 20-40 years old
 - Digitally competent
-- Multi-tasking with little time to do paper work 
-- These are the tasks they'll 
+- Always multi-tasking
 
-Students
+These are the tasks Teachers are expected to perform
+   1. Create a teacher's account to get access to the website.
+   2. In the main page, they are expected to the following buttons: **Register Student**, **Attendance**, **Class Group**
+   3. **Register page**
+     * They can create a student profile that consist of first name, last name, 
+    2. They are expected to create a profile for each students and assigned them to specific class group. 
+    3. They can also gain access to attendance page where they are expected to login the name, clock in, clock out, temperature and remarks input. 
+    4. The remarks input is present in the attendance page where they are expected to type in the comment whether the child is present or absent. For absent part, they can specify more on why the student is absent.
+    5. An additional upload file button is created to save the child's medical certificate.  
+
+####Parents
+- Middle-age group
+- Digitally competent
+⋅⋅* As a parent, these are the tasks they are expected to perform
+    1. Create a parent account to get access to the website
+    2. In the main page, they can view their child's profile and attendance record 
+    3. In attendance, they are expected to see the child's time of clock in the school and temparature record. 
+
+
+
+####Students
 - Aged 6-11 years old
 - iPad and Mobile users
+
+
 
  
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
