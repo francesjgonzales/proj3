@@ -26,16 +26,24 @@ These are the tasks Teachers are expected to perform
    1. Create a teacher's account to get access to the website.
    2. In the main page, they are expected to the following buttons: **Register Student**, **Attendance**, **Class Group**
    3. **Register page**
-     * They can create a student profile that consist of first name, last name, 
-    2. They are expected to create a profile for each students and assigned them to specific class group. 
-    3. They can also gain access to attendance page where they are expected to login the name, clock in, clock out, temperature and remarks input. 
-    4. The remarks input is present in the attendance page where they are expected to type in the comment whether the child is present or absent. For absent part, they can specify more on why the student is absent.
-    5. An additional upload file button is created to save the child's medical certificate.  
+    * They can create a student profile that consist of first name, last name, 
+    * They are expected to create a profile for each students and assigned them to specific class group. 
+
+   4. **Attendance page**
+    * They are expected to login the student's name, clock in, clock out, temperature and remarks input. 
+    * The remarks input is present in the attendance page where they are expected to type in the comment whether the child is present or absent. For absent part, they can specify more on why the student is absent.
+    * There will be a search input present for quicker navigation
+    <!-- 5. An additional upload file button is created to save the child's medical certificate.   -->
+   5. **Class page**
+    * They are expected to see the list of students sorted according to their group. This helps to narrow down the list when contact tracing is needed. 
+    * They can also see a calendar to go to a specific date and when clicked, the list of student present will appear. 
+
+
 
 ####Parents
 - Middle-age group
 - Digitally competent
-⋅⋅* As a parent, these are the tasks they are expected to perform
+These are the tasks Teachers are expected to perform
     1. Create a parent account to get access to the website
     2. In the main page, they can view their child's profile and attendance record 
     3. In attendance, they are expected to see the child's time of clock in the school and temparature record. 
