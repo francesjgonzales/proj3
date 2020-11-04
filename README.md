@@ -22,25 +22,8 @@ I want to improve this process to be digitised so that teacher can easily record
 - Digitally competent
 - Always multi-tasking
 
-These are the tasks Teachers are expected to perform
-   1. Create a teacher's account to get access to the website.
-   2. In the main page, they are expected to the following buttons: **Register Student**, **Attendance**, **Class Group**
-   3. **Register page**
-    * They can create a student profile that consist of first name, last name, 
-    * They are expected to create a profile for each students and assigned them to specific class group. 
 
-   4. **Attendance page**
-    * They are expected to login the student's name, clock in, clock out, temperature and remarks input. 
-    * The remarks input is present in the attendance page where they are expected to type in the comment whether the child is present or absent. For absent part, they can specify more on why the student is absent.
-    * There will be a search input present for quicker navigation
-    <!-- 5. An additional upload file button is created to save the child's medical certificate.   -->
-   5. **Class page**
-    * They are expected to see the list of students sorted according to their group. This helps to narrow down the list when contact tracing is needed. 
-    * They can also see a calendar to go to a specific date and when clicked, the list of student present will appear. 
-
-
-
-####Parents
+#### Parents
 - Middle-age group
 - Digitally competent
 These are the tasks Teachers are expected to perform
@@ -49,20 +32,20 @@ These are the tasks Teachers are expected to perform
     3. In attendance, they are expected to see the child's time of clock in the school and temparature record. 
 
 
-
-####Students
+#### Students
 - Aged 6-11 years old
 - iPad and Mobile users
 
 
+Desktop wireframes found [here](readme/wireframes.pdf) is created to perform in the teacher user's view, student's and parent's view.
 
- 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+Tasks performed by **Teacher** in order to achieve certain goals.
+   1. CREATE teacher's account to get access to class groups, student list and attendance. 
+   2. In the main page, they are expected to the following buttons: **MY CLASS GROUP**, **ADD CLASS GROUP**, & **Agenda**
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+
+  
 
 ## Features
 
