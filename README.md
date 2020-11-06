@@ -6,7 +6,7 @@ You may access the deployed website [here] (http).
 
  
 ## UX
-------
+
 This website is designed for teachers to register the student, assign them to a class group, track each student's attendance and temperature, and update student records. The purpose of this website is for teacher to have access to the database where all records are inside. 
 
 
@@ -39,7 +39,7 @@ I want to propose a digital version so that teacher can easily record the studen
 ### Design
 
 The layout design is inspired by the app called [Class Dojo](https://www.classdojo.com/en-gb/?redirect=true) where I referred to how students and classes are organised.
-The **colour palette** used are [loud colours]( )to suit kids' preference. 
+The **colour palette** used are [loud colours](readme/colourPalette.png) to suit kids' preference. 
 The **images** used are cartoon-like especially the student profiles where kids can choose what type of image they can use for their profiles.
 The **font** used is a [Red hat](https://fonts.google.com/specimen/Red+Hat+Text#license) font style. I picked this one because of easy readability for teachers and kids.
 
@@ -53,7 +53,6 @@ Part of designing the wireframe is to create a prototype where live buttons are 
 
 
 ## Features
-------
 
 ### Existing Features
 The website will feature the following
@@ -105,24 +104,22 @@ Here are additional features to be implemented in the future:
 - An internal chatroom between teacher and parents for one-on-one communication
 
 ## Technologies Used
-------
+
+- Figma for wireframing and design
+- Illustrator for vector images to convert to svg
 - Python
 - HTML
 - CSS
 - JavaScript
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for cloud hosted database
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
 
 ## Programming Methodologies
-------
+
 - .env file was used to store environment variables so that Flask secret key and database credentials were not publicly viewable.
 
 ## Database Design
-------
+
 Here's the [ER] diagram of this project's data base. 
 
 Three MongoDB collections were used:
@@ -204,7 +201,6 @@ Here are sample database documents for each user
 
 
 ## Testing
-------
 
 Tasks performed by **Teacher** in order to achieve certain goals.
 
@@ -234,7 +230,7 @@ You should also mention in this section any interesting bugs or problems you dis
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
-------
+
 
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
@@ -247,7 +243,6 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 
 ## Credits
-------
 
 ### Content
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
