@@ -59,7 +59,7 @@ def process_create_student():
     return redirect(url_for('show_students'))
 
 
-# EDIT
+# EDIT(UPDATE)
 
 @app.route('/students/edit/<student_id>')
 def show_student_animal(student_id):
@@ -87,7 +87,21 @@ def show_edit_student(student_id):
     return redirect(url_for('show_students'))
 
 
+# DELETE
+@app.route('/students/delete/<student_id>')
+def show_confirm_delete(student_id):
+    students_to_be_deleted = db.students.find_one({
+        "_id": ObjectId(student_id)
+    })
+    return render_template('show_confirm_delete.template.html',                         student=students_to_be_deleted)
 
+
+@app.route('/students/delete/<student_id>', methods=["POST"])
+def confirm_delete(student_id):
+    db.students.remove({
+        "_id": ObjectId(student_id)
+    })
+    return redirect(url_for("show_students"))
 
 # "magic code" -- boilerplate
 if __name__ == '__main__':
