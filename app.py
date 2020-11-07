@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from bson.objectid import ObjectId
 from dotenv import load_dotenv
 import os
 import pymongo
@@ -43,7 +44,7 @@ def show_create_student():
 
 
 @app.route('/students/create', methods=["POST"])
-def process_create_animal():
+def process_create_student():
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
     date_of_birth = int(request.form.get("date_of_birth"))
@@ -56,6 +57,36 @@ def process_create_animal():
 
     db.students.insert_one(new_record)
     return redirect(url_for('show_students'))
+
+
+# EDIT
+
+@app.route('/students/edit/<student_id>')
+def show_student_animal(student_id):
+    student = db.students.find_one({
+        '_id': ObjectId(student_id)
+    })
+    return render_template('edit_student.template.html', student=student)
+
+
+@app.route('/students/edit/<student_id>', methods=["POST"])
+def show_edit_student(student_id):
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    date_of_birth = int(request.form.get("date_of_birth"))
+
+    db.students.update_one({
+        "_id": ObjectId(student_id)
+    }, {
+        "$set": {
+            "first_name": first_name,
+            "last_name": last_name,
+            "date_of_birth": date_of_birth
+        }
+    })
+    return redirect(url_for('show_students'))
+
+
 
 
 # "magic code" -- boilerplate

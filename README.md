@@ -46,9 +46,9 @@ The **font** used is a [Red hat](https://fonts.google.com/specimen/Red+Hat+Text#
 
 ### Wireframes
 
-Desktop wireframes is found [here](https://www.figma.com/proto/cnpk9XUHqG4NUYYtuwLCJz/proj3-sat?node-id=28%3A353&viewport=759%2C1725%2C0.4398890733718872&scaling=contain) is created to perform in the teacher user's view, student's and parent's view.
+Desktop wireframes found [here](https://www.figma.com/proto/cnpk9XUHqG4NUYYtuwLCJz/proj3-sat?node-id=28%3A353&viewport=759%2C1725%2C0.4398890733718872&scaling=contain) is created to perform in the teacher user's view, student's and parent's view.
 
-Part of designing the wireframe is to create a prototype where live buttons are available to see if the database relationship is working. 
+Part of designing the wireframe is to create a prototype where live buttons are available to see if the database relationship is in sync. 
 
 
 
