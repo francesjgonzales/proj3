@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+@media (max-width: 375px) {
+    * {
+    font-size: medium;
+    box-sizing: border-box;
+    }
+  }
+
+.container {
+    margin: auto;
+}

@@ -4,3 +4,6 @@ core.python*
 env.py
 __pycache__/
 *.py[cod]
+
+#add this so that .env file won't get pushed to github. this contains sensitive files.
+.env

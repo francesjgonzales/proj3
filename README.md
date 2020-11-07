@@ -202,6 +202,11 @@ Here are sample database documents for each user
 
 ## Testing
 
+### To check whether the MongoDB is working in Flask I typed this code and check terminal for MONGO_URL to appear 
+```
+print(os.environ.get('MONGO_URL'))
+```
+
 Tasks performed by **Teacher** in order to achieve certain goals.
 
 1. Sign up page
@@ -210,6 +215,8 @@ Tasks performed by **Teacher** in order to achieve certain goals.
    2. After signing up, teacher will go to **Teacher's Main page**, where clickable buttons of **Class Group** to check on students under specific class group, **Add Class Group** to create new class group and add list of students & **Agenda** where user can add tasks for the day.
    3. In the **Class Group** page, the list of students with student's first and last names, date of birth and attendance status are shown. The teacher can edit or delete information.
    4. 
+
+### 
 
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
