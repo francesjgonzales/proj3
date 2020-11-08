@@ -93,7 +93,8 @@ def show_confirm_delete(student_id):
     students_to_be_deleted = db.students.find_one({
         "_id": ObjectId(student_id)
     })
-    return render_template('show_confirm_delete.template.html',                         student=students_to_be_deleted)
+    return render_template('show_confirm_delete.template.html', 
+                            student=students_to_be_deleted)
 
 
 @app.route('/students/delete/<student_id>', methods=["POST"])
