@@ -209,6 +209,11 @@ Here are sample database documents for each user
 print(os.environ.get('MONGO_URL'))
 ```
 
+### When CSS didn't respond after refreshing the page, type
+```
+command + shift + readability
+```
+
 Tasks performed by **Teacher** in order to achieve certain goals.
 
 1. Sign up page

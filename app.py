@@ -66,10 +66,33 @@ def process_create_student():
     return redirect(url_for('show_students'))
 
 
+@app.route('/teachers/create')
+def show_create_teacher():
+    return render_template('create_teacher.template.html')
+
+
+@app.route('/teachers/create', methods=["POST"])
+def process_create_teacher():
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    email = int(request.form.get("email"))
+    password = request.form.get("password")
+
+    new_record = {
+        "first_name": first_name,
+        "last_name": last_name,
+        "email": email,
+        "password": password
+    }
+
+    db.teachers.insert_one(new_record)
+    return redirect(url_for('show_teachers'))
+
+
 # EDIT(UPDATE)
 
 @app.route('/students/edit/<student_id>')
-def show_student_animal(student_id):
+def show_edit_student(student_id):
     student = db.students.find_one({
         '_id': ObjectId(student_id)
     })
@@ -77,7 +100,7 @@ def show_student_animal(student_id):
 
 
 @app.route('/students/edit/<student_id>', methods=["POST"])
-def show_edit_student(student_id):
+def process_edit_student(student_id):
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
     date_of_birth = int(request.form.get("date_of_birth"))
@@ -92,6 +115,34 @@ def show_edit_student(student_id):
         }
     })
     return redirect(url_for('show_students'))
+
+
+@app.route('/teachers/edit/<teacher_id>')
+def show_edit_teacher(teacher_id):
+    teacher = db.teachers.find_one({
+        '_id': ObjectId(teacher_id)
+    })
+    return render_template('edit_teacher.template.html', teacher=teacher)
+
+
+@app.route('/teachers/edit/<teacher_id>', methods=["POST"])
+def process_edit_teacher(teacher_id):
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    email = request.form.get("email")
+    password = request.form.get("password")
+
+    db.teachers.update_one({
+        "_id": ObjectId(teacher_id)
+    }, {
+        "$set": {
+            "first_name": first_name,
+            "last_name": last_name,
+            "email": email,
+            "password": password
+        }
+    })
+    return redirect(url_for('show_teachers'))
 
 
 # DELETE

@@ -1,4 +1,4 @@
-{% extends 'base.template.html' %}
+{% extends 'home.template.html' %}
 
 {% block content %}
 <form method="POST">
@@ -11,8 +11,12 @@
         <input type="text" class="form-control" name="last_name"/>
     </div>
     <div>
-        <label class="form-label">Date of Birth</label>
-        <input type="text" class="form-control" name="date_of_birth"/>
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" name="email"/>
+    </div>
+    <div>
+        <label class="form-label">Password</label>
+        <input type="text" class="form-control" name="password"/>
     </div>
 
     <input type="submit" class="btn btn-primary"/>
