@@ -20,6 +20,13 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY')
 
 
+# HOME
+
+@app.route('/')
+def home():
+    return render_template('home.template.html')
+
+
 # READ
 
 @app.route('/students')
@@ -33,7 +40,7 @@ def show_students():
 def show_teachers():
     all_teachers = db.teachers.find()
     print(all_teachers)
-    return render_template('teachers.template.html')
+    return render_template('all_teachers.template.html')
 
 
 # CREATE
@@ -93,8 +100,8 @@ def show_confirm_delete(student_id):
     students_to_be_deleted = db.students.find_one({
         "_id": ObjectId(student_id)
     })
-    return render_template('show_confirm_delete.template.html', 
-                            student=students_to_be_deleted)
+    return render_template('show_confirm_delete.template.html',
+                           student=students_to_be_deleted)
 
 
 @app.route('/students/delete/<student_id>', methods=["POST"])
@@ -103,6 +110,7 @@ def confirm_delete(student_id):
         "_id": ObjectId(student_id)
     })
     return redirect(url_for("show_students"))
+
 
 # "magic code" -- boilerplate
 if __name__ == '__main__':

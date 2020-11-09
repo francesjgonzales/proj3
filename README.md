@@ -108,10 +108,12 @@ Here are additional features to be implemented in the future:
 - Figma for wireframing and design
 - Illustrator for vector images to convert to svg
 - Python
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/quickstart/#static-files)
 - HTML
 - CSS
 - JavaScript
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for cloud hosted database
+
 
 
 ## Programming Methodologies
