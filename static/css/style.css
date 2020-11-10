@@ -29,6 +29,10 @@ h1 {
   padding: 2em;
 }
 
+.navbar-brand {
+    color: #5375F5;
+}
+
 .container-fluid {
     margin: auto;
     padding: 2em;

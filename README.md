@@ -116,6 +116,37 @@ Here are additional features to be implemented in the future:
 
 
 ## Programming Methodologies
+Requirements when working with the following:
+
+- Work with python
+``` 
+pip3 install flask
+```
+
+- Work with user authentication
+```
+pip3 install flask-login
+```
+
+```
+pip3 install dnspython
+```
+
+- Generate Python key. Paste the secret key into the separate py file called 'generate-key.py' file
+```
+python3 generate-key.py
+```
+
+- Access MongoDB database
+```
+pip3 install pymongo
+```
+
+- Allows me to install variables. This will not be pushed to GitHub because of confidential info.
+```
+pip3 install python-dotenv
+``` 
+
 
 - .env file was used to store environment variables so that Flask secret key and database credentials were not publicly viewable.
 

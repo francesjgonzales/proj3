@@ -1,15 +1,15 @@
 {% extends 'base.template.html' %}
 
 {% block content %}
-
+<h1>Login</h1>
 <form method="POST">
     <div>
         <label class="form-label">Email</label>
-        <input type="text" class="form-control" name="email" value="{{teacher.email}}"/>
+        <input type="text" class="form-control" name="email"/>
     </div>
     <div>
         <label class="form-label">Password</label>
-        <input type="text" class="form-control" name="password" value="{{teacher.password}}"/>
+        <input type="text" class="form-control" name="password"/>
     </div>
 
     <input type="submit" class="btn btn-primary"/>
