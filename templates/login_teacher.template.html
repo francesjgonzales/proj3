@@ -1,0 +1,18 @@
+{% extends 'base.template.html' %}
+
+{% block content %}
+
+<form method="POST">
+    <div>
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" name="email" value="{{teacher.email}}"/>
+    </div>
+    <div>
+        <label class="form-label">Password</label>
+        <input type="text" class="form-control" name="password" value="{{teacher.password}}"/>
+    </div>
+
+    <input type="submit" class="btn btn-primary"/>
+</form>
+
+{% endblock %}

@@ -27,6 +27,16 @@ def home():
     return render_template('home.template.html')
 
 
+# LOGIN
+
+@app.route('/teachers/login/<teacher_id>')
+def teacher_login(teacher_id):
+    teacher = db.teachers.find_one({
+        '_id': ObjectId(teacher_id)
+    })
+    return render_template('login_teacher.template.html', teacher=teacher)
+
+
 # READ
 
 @app.route('/students')
@@ -39,8 +49,8 @@ def show_students():
 @app.route('/teachers')
 def show_teachers():
     all_teachers = db.teachers.find()
-    print(all_teachers)
-    return render_template('all_teachers.template.html')
+    return render_template('all_teachers.template.html',
+                           all_teachers=all_teachers)
 
 
 # CREATE
@@ -75,7 +85,7 @@ def show_create_teacher():
 def process_create_teacher():
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
-    email = int(request.form.get("email"))
+    email = request.form.get("email")
     password = request.form.get("password")
 
     new_record = {
@@ -161,6 +171,23 @@ def confirm_delete(student_id):
         "_id": ObjectId(student_id)
     })
     return redirect(url_for("show_students"))
+
+
+@app.route('/teachers/delete/<teacher_id>')
+def show_confirm_delete_teacher(teacher_id):
+    teachers_to_be_deleted = db.teachers.find_one({
+        "_id": ObjectId(teacher_id)
+    })
+    return render_template('show_confirm_delete_teacher.template.html',
+                           teacher=teachers_to_be_deleted)
+
+
+@app.route('/teachers/delete/<teacher_id>', methods=["POST"])
+def confirm_delete_teacher(teacher_id):
+    db.teachers.remove({
+        "_id": ObjectId(teacher_id)
+    })
+    return redirect(url_for("show_teachers"))
 
 
 # "magic code" -- boilerplate

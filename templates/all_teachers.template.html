@@ -2,9 +2,6 @@
 {% block content %}
 
 <div class="container">
-{% for each_teacher in all_teachers %}
-<h1>{{each_teacher.first_name}}</h1>
-{%endfor%}
 </div>
 <table class="table">
     <thead>
@@ -21,14 +18,14 @@
         <td>{{each_teacher.last_name}}</td>
         <td>{{each_teacher.email}}</td>
         <td>{{each_teacher.password}}</td>
-        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn-success">Edit </a></td>
-        <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn-danger">Delete </a></td>
+        <td><a href="{{ url_for('show_edit_teacher', teacher_id=each_teacher._id) }}" class="btn btn-success">Edit </a></td>
+        <td><a href="{{ url_for('show_confirm_delete_teacher', teacher_id=each_teacher._id) }}" class="btn btn-danger">Delete </a></td>
     </tr>  
     
     </thead>
 
      {%endfor%}
-   <a href="{{ url_for('show_create_student') }}" class="btn btn-success"> Add Task</a>
+   <a href="{{ url_for('show_create_teacher') }}" class="btn btn-success"> Add Task</a>
 
 </table>
 
