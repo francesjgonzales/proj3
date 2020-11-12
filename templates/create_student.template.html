@@ -1,21 +1,22 @@
 {% extends 'base.template.html' %}
 
 {% block content %}
-<form method="POST">
+<form method="POST" id="student_form">
+
     <div>
         <label class="form-label">First Name</label>
-        <input type="text" class="form-control" name="first_name"/>
+        <input type="text" class="form-control" name="sfirst_name" />
     </div>
     <div>
         <label class="form-label">Last Name</label>
-        <input type="text" class="form-control" name="last_name"/>
+        <input type="text" class="form-control" name="slast_name" />
     </div>
     <div>
         <label class="form-label">Date of Birth</label>
-        <input type="text" class="form-control" name="date_of_birth"/>
+        <input type="text" class="form-control" name="sdate_of_birth" id="sdate_of_birth" />
     </div>
-
-    <input type="submit" class="btn btn-primary"/>
+    <div id="error_message"></div>
+    <input type="submit" class="btn btn-primary">
 </form>
 
 {% endblock %}

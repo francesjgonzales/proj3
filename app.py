@@ -21,7 +21,7 @@ db = client['student_tracker']
 app.secret_key = os.environ.get('SECRET_KEY')
 
 
-# SIGN UP
+# TEACHER SIGN UP
 @app.route('/teachers/create')
 def show_create_teacher():
     return render_template('create_teacher.template.html')
@@ -50,7 +50,7 @@ def process_create_teacher():
     return redirect(url_for('show_teachers'))
 
 
-# LOGIN
+# TEACHER LOGIN
 
 @app.route('/teachers/login')
 def teacher_login():
@@ -105,6 +105,8 @@ def show_teacher_main():
     return render_template('teacher_main.template.html')
 
 
+# PARENTS MAIN PAGE
+
 @app.route('/parents')
 def show_parents():
     all_parents = db.parents.find()
@@ -121,9 +123,9 @@ def show_create_student():
 
 @app.route('/students/create', methods=["POST"])
 def process_create_student():
-    first_name = request.form.get("first_name")
-    last_name = request.form.get("last_name")
-    date_of_birth = request.form.get("date_of_birth")
+    first_name = request.form.get("sfirst_name")
+    last_name = request.form.get("slast_name")
+    date_of_birth = request.form.get("sdate_of_birth")
 
     new_record = {
         "first_name": first_name,
