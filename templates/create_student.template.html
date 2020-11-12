@@ -1,7 +1,7 @@
 {% extends 'base.template.html' %}
 
 {% block content %}
-<form method="POST" id="student_form">
+<form id="student_form" method="POST" >
 
     <div>
         <label class="form-label">First Name</label>
@@ -13,10 +13,10 @@
     </div>
     <div>
         <label class="form-label">Date of Birth</label>
-        <input type="text" class="form-control" name="sdate_of_birth" id="sdate_of_birth" />
+        <input id="sdate_of_birth" type="text" class="form-control" name="sdate_of_birth"  />
     </div>
     <div id="error_message"></div>
-    <input type="submit" class="btn btn-primary">
-</form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form> 
 
 {% endblock %}

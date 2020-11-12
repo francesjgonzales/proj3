@@ -1,19 +1,17 @@
-const student_dob = document.getElementById('sdate_of_birth')
-const form = document.getElementById('student_form')
-const errormsg = document.getElementById('error_message')
-
-form.addEventListener('submit'), (e) => {
-    let messages = []
-    if (student_dob.value.length <= 8) {
-        messages.push('Please type correct value - DDMMYYYY')
-    }
-
-    if (student_dob.value.length >= 8) {
-        messages.push('Invalid birthdate. Please type correct value - DDMMYYYY')
-    }
-
-    if (message.length > 0) {
-        e.preventDefault()
-        errormsg.innerText = messages.join(', ')  
-    }
+(function() {
+'use strict';
+window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+var forms = document.getElementsByClassName('needs-validation');
+// Loop over them and prevent submission
+var validation = Array.prototype.filter.call(forms, function(form) {
+form.addEventListener('submit', function(event) {
+if (form.checkValidity() === false) {
+event.preventDefault();
+event.stopPropagation();
 }
+form.classList.add('was-validated');
+}, false);
+});
+}, false);
+})();

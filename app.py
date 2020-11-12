@@ -73,6 +73,13 @@ def process_teacher_login():
     return redirect(url_for("show_teachers"))
 
 
+# PARENT SIGN UP
+
+@app.route('/parents/create')
+def show_create_parent():
+    return render_template('create_parent.template.html')
+
+
 # HOME
 
 @app.route('/')
