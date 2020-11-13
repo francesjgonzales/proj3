@@ -3,6 +3,7 @@ from bson.objectid import ObjectId
 from dotenv import load_dotenv
 import os
 import pymongo
+import datetime
 
 
 load_dotenv()
@@ -112,6 +113,42 @@ def show_teacher_main():
     return render_template('teacher_main.template.html')
 
 
+# STUDENT ATTENDANCE PAGE
+
+@app.route('/attendance')
+def show_attendance():
+    all_attendance = db.attendance.find()
+    all_students = db.students.find()
+    return render_template('all_attendance.template.html',
+                           all_attendance=all_attendance,
+                           all_students=all_students)
+
+
+# CREATE STUDENT ATTENDANCE PAGE
+
+@app.route('/attendance/create')
+def show_create_attendance():
+    return render_template('create_attendance.template.html')
+
+
+@app.route('/attendance/create', methods=["POST"])
+def process_create_attendance():
+    clock_in = request.form.get("clock_in")
+    clock_out = request.form.get("clock_out")
+    temparature = int(request.form.get("temparature"))
+    isPresent = request.form.get("isPresent")
+
+    new_record = {
+        "clock_in": clock_in,
+        "clock_out": clock_out,
+        "temparature": temparature,
+        "isPresent": isPresent
+    }
+
+    db.attendance.insert_one(new_record)
+    return redirect(url_for('show_create_attendance'))
+
+
 # PARENTS MAIN PAGE
 
 @app.route('/parents')
@@ -130,9 +167,9 @@ def show_create_student():
 
 @app.route('/students/create', methods=["POST"])
 def process_create_student():
-    first_name = request.form.get("sfirst_name")
-    last_name = request.form.get("slast_name")
-    date_of_birth = request.form.get("sdate_of_birth")
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    date_of_birth = request.form.get("date_of_birth")
 
     new_record = {
         "first_name": first_name,
