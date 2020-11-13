@@ -122,7 +122,7 @@ def show_attendance():
 
 @app.route('/attendance/create')
 def show_create_attendance():
-    return render_template('create_attendance.template.html')
+    return render_template('attendance/create_attendance.template.html')
 
 
 @app.route('/attendance/create', methods=["POST"])
@@ -217,11 +217,13 @@ def process_create_student():
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
     date_of_birth = request.form.get("date_of_birth")
+    class_groupId = request.form.get("class_groupId")
 
     new_record = {
         "first_name": first_name,
         "last_name": last_name,
-        "date_of_birth": date_of_birth
+        "date_of_birth": date_of_birth,
+        "class_groupId": class_groupId
     }
 
     db.students.insert_one(new_record)
@@ -236,7 +238,7 @@ def show_edit_student(student_id):
         '_id': ObjectId(student_id)
     })
     return render_template('teachers/edit_student.template.html',
-                            student=student)
+                           student=student)
 
 
 @app.route('/students/edit/<student_id>', methods=["POST"])
@@ -263,7 +265,7 @@ def show_edit_teacher(teacher_id):
         '_id': ObjectId(teacher_id)
     })
     return render_template('teachers/edit_teacher.template.html',
-                            teacher=teacher)
+                           teacher=teacher)
 
 
 @app.route('/teachers/edit/<teacher_id>', methods=["POST"])
@@ -322,47 +324,44 @@ def confirm_delete_teacher(teacher_id):
     return redirect(url_for("show_teachers"))
 
 
-@app.route('/search')
+# SEARCH
+
+@app.route('/students/search')
 def show_search_form():
     return render_template('search.template.html')
 
 
-@app.route('/search', methods=['POST'])
+@app.route('/students/search', methods=['POST'])
 def process_search_form():
-    teacher_id = request.form.get('teacher_id)
-    student_id = request.form.get('first_name')
-    tags = request.form.getlist('tags')
+    first_name = request.form.get('first_name')
+    class_groupId = request.form.get('class_groupId')
 
     print(tags)
 
     critera = {}
 
-    if animal_name:
-        critera['name'] = {
-            '$regex': animal_name,
+    if first_name:
+        critera['first_name'] = {
+            '$regex': name,
             '$options': 'i'  # i means 'case-insensitive'
         }
 
-    if species:
-        critera['species'] = {
-            '$regex': species,
+    if class_groupId:
+        critera['class_groupId'] = {
+            '$regex': class_name,
             '$options': 'i'
         }
 
-    if len(tags) > 0:
-        critera['tags'] = {
-            '$in': tags
-        }
-
     # put all the search critera into a list for easier processing
-    searched_by = [animal_name, species]
+    searched_by = [student_name, class_groupId]
 
     print(critera)
 
-    results = db.animals.find(critera)
-    return render_template('display_results.template.html',
-                           all_animals=results,
+    results = db.students.find(critera)
+    return render_template('students/display_students.template.html',
+                           all_students=results,
                            searched_by=searched_by)
+
 
 @app.route('/logout')
 def logout():
