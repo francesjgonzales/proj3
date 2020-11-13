@@ -16,29 +16,29 @@
 
 <body>
 
+<!-- NAV BAR -->
 
-<div class="container" style="text-align:center">
-    <h1>Welcome!</h1>
-    <h4>Student Attendance Tracker</h4>
-    <p>A website that help teachers manage student attendance record</p>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href='/'><h1>SAT</h1></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('teacher_login') }}">Teacher Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('parent_login')}}">Parent Login</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
 
 <div class="container">
-    <h4 style="text-align: center">Sign up as a...</h4>
-</div>
-
-<div class="container px-lg-5">
-    <div class="row mx-lg-n5" style="text-align:center">
-
-        <div class="col py-3 px-lg-5">
-            <a href="{{ url_for('show_create_teacher') }}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Teacher</a>
-        </div>
-
-        <div class="col py-3 px-lg-5">
-            <a href="{{ url_for('show_create_parent') }}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Parent</a>
-        </div>
-
-    </div>
+{% block content %} {% endblock %}
 </div>
 
 <!-- Bootstrap javascript -->

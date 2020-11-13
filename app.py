@@ -22,13 +22,20 @@ db = client['student_tracker']
 app.secret_key = os.environ.get('SECRET_KEY')
 
 
+# HOME
+
+@app.route('/')
+def home():
+    return render_template('home.template.html')
+
+
 # TEACHER SIGN UP
-@app.route('/teachers/create')
+@app.route('/teachers/signup')
 def show_create_teacher():
-    return render_template('create_teacher.template.html')
+    return render_template('teachers/create_teacher.template.html')
 
 
-@app.route('/teachers/create', methods=["POST"])
+@app.route('/teachers/signup', methods=["POST"])
 def process_create_teacher():
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
@@ -48,53 +55,31 @@ def process_create_teacher():
 
     db.teachers.insert_one(new_record)
     flash("Sign up successful")
-    return redirect(url_for('show_teachers'))
+    return redirect(url_for('show_teacher_main'))
 
 
 # TEACHER LOGIN
 
 @app.route('/teachers/login')
 def teacher_login():
-    return render_template('login_teacher.template.html')
+    return render_template('teachers/login_teacher.template.html')
 
 
-@app.route('/teachers/login', methods=["POST", "GET"])
+@app.route('/teachers/login', methods=["POST"])
 def process_teacher_login():
     email = request.form.get('email')
     password = request.form.get('password')
 
     if len(email) == 0:
-        flash("Name cannot be empty", "error")
+        flash("Please fill up email", "error")
         return redirect(url_for('teacher_login'))
 
-    db.teachers.find_one({
-        'email': email,
-        'password': password
-    })
+    else:
+        db.teachers.find_one({
+            'email': email,
+            'password': password
+        })
     return redirect(url_for("show_teachers"))
-
-
-# PARENT SIGN UP
-
-@app.route('/parents/create')
-def show_create_parent():
-    return render_template('create_parent.template.html')
-
-
-# HOME
-
-@app.route('/')
-def home():
-    return render_template('home.template.html')
-
-
-# READ
-
-@app.route('/students')
-def show_students():
-    all_students = db.students.find()
-    return render_template('all_students.template.html',
-                           all_students=all_students)
 
 
 # TEACHERS LIST
@@ -102,15 +87,24 @@ def show_students():
 @app.route('/teachers')
 def show_teachers():
     all_teachers = db.teachers.find()
-    return render_template('all_teachers.template.html',
+    return render_template('teachers/all_teachers.template.html',
                            all_teachers=all_teachers)
 
 
-# TEACHER MAIN PAGE
+# TEACHER WELCOME PAGE
 
 @app.route('/teachers/main')
 def show_teacher_main():
-    return render_template('teacher_main.template.html')
+    return render_template('teachers/teacher_main.template.html')
+
+
+# STUDENT PROFILE
+
+@app.route('/students')
+def show_students():
+    all_students = db.students.find()
+    return render_template('students/all_students.template.html',
+                           all_students=all_students)
 
 
 # STUDENT ATTENDANCE PAGE
@@ -119,7 +113,7 @@ def show_teacher_main():
 def show_attendance():
     all_attendance = db.attendance.find()
     all_students = db.students.find()
-    return render_template('all_attendance.template.html',
+    return render_template('attendance/all_attendance.template.html',
                            all_attendance=all_attendance,
                            all_students=all_students)
 
@@ -154,8 +148,61 @@ def process_create_attendance():
 @app.route('/parents')
 def show_parents():
     all_parents = db.parents.find()
-    return render_template('all_parents.template.html',
+    return render_template('parents/all_parents.template.html',
                            all_parents=all_parents)
+
+
+# PARENT SIGN UP
+
+@app.route('/parents/signup')
+def show_create_parent():
+    return render_template('parents/create_parent.template.html')
+
+
+@app.route('/parents/signup', methods=["POST"])
+def process_create_parent():
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    email = request.form.get("email")
+    password = request.form.get("password")
+
+    if len(first_name) == 0:
+        flash("Name cannot be empty", "error")
+        return redirect(url_for('show_create_parent'))
+
+    new_record = {
+        "first_name": first_name,
+        "last_name": last_name,
+        "email": email,
+        'password': password
+    }
+
+    db.parents.insert_one(new_record)
+    flash("Sign up successful")
+    return redirect(url_for('show_parents'))
+
+
+# PARENT LOGIN
+
+@app.route('/parents/login')
+def parent_login():
+    return render_template('parents/login_parent.template.html')
+
+
+@app.route('/parents/login', methods=["POST", "GET"])
+def process_parents_login():
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    if len(email) == 0:
+        flash("Name cannot be empty", "error")
+        return redirect(url_for('teacher_login'))
+
+    db.teachers.find_one({
+        'email': email,
+        'password': password
+    })
+    return redirect(url_for("show_parents"))
 
 
 # CREATE STUDENT PROFILE
@@ -188,7 +235,8 @@ def show_edit_student(student_id):
     student = db.students.find_one({
         '_id': ObjectId(student_id)
     })
-    return render_template('edit_student.template.html', student=student)
+    return render_template('teachers/edit_student.template.html',
+                            student=student)
 
 
 @app.route('/students/edit/<student_id>', methods=["POST"])
@@ -214,7 +262,8 @@ def show_edit_teacher(teacher_id):
     teacher = db.teachers.find_one({
         '_id': ObjectId(teacher_id)
     })
-    return render_template('edit_teacher.template.html', teacher=teacher)
+    return render_template('teachers/edit_teacher.template.html',
+                            teacher=teacher)
 
 
 @app.route('/teachers/edit/<teacher_id>', methods=["POST"])
@@ -261,7 +310,7 @@ def show_confirm_delete_teacher(teacher_id):
     teachers_to_be_deleted = db.teachers.find_one({
         "_id": ObjectId(teacher_id)
     })
-    return render_template('show_confirm_delete_teacher.template.html',
+    return render_template('teachers/confirm_delete_teacher.template.html',
                            teacher=teachers_to_be_deleted)
 
 
@@ -273,12 +322,52 @@ def confirm_delete_teacher(teacher_id):
     return redirect(url_for("show_teachers"))
 
 
+@app.route('/search')
+def show_search_form():
+    return render_template('search.template.html')
+
+
+@app.route('/search', methods=['POST'])
+def process_search_form():
+    teacher_id = request.form.get('teacher_id)
+    student_id = request.form.get('first_name')
+    tags = request.form.getlist('tags')
+
+    print(tags)
+
+    critera = {}
+
+    if animal_name:
+        critera['name'] = {
+            '$regex': animal_name,
+            '$options': 'i'  # i means 'case-insensitive'
+        }
+
+    if species:
+        critera['species'] = {
+            '$regex': species,
+            '$options': 'i'
+        }
+
+    if len(tags) > 0:
+        critera['tags'] = {
+            '$in': tags
+        }
+
+    # put all the search critera into a list for easier processing
+    searched_by = [animal_name, species]
+
+    print(critera)
+
+    results = db.animals.find(critera)
+    return render_template('display_results.template.html',
+                           all_animals=results,
+                           searched_by=searched_by)
+
 @app.route('/logout')
 def logout():
-    flask_login.logout_user()
-    flash('Logged out', 'success')
-    return redirect(url_for('login'))
-    
+    return redirect(url_for("home"))
+
 
 # "magic code" -- boilerplate
 if __name__ == '__main__':

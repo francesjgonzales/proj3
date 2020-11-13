@@ -1,6 +1,7 @@
 {% extends 'base.template.html' %}
 {% block content %}
 
+
 <div class="container">
 <h1>November</h1>
 <table class="table">
@@ -17,29 +18,14 @@
   </thead>
   <tbody>
 
-    <tr>
      {% for each_student in all_students %}
     <tr>
         <td>{{each_student.first_name}}</td>
         <td>{{each_student.last_name}}</td>
-        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn-success">Edit </a></td>
-        <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn-danger">Delete </a></td>
+        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn-primary">Clock In </a></td>
+        <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn-danger">Clock Out </a></td>
     </tr>  
     {% endfor %}
-      <td>Clock In</td>
-      <td>Clock Out</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
     
   </tbody>
 
