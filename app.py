@@ -22,6 +22,11 @@ db = client['student_tracker']
 app.secret_key = os.environ.get('SECRET_KEY')
 
 
+# SET UP DATE AND TIME
+
+currentDate = datetime.datetime.now()
+
+
 # HOME
 
 @app.route('/')
@@ -129,7 +134,7 @@ def show_create_attendance():
 def process_create_attendance():
     clock_in = request.form.get("clock_in")
     clock_out = request.form.get("clock_out")
-    temparature = int(request.form.get("temparature"))
+    temparature = request.form.get("temparature")
     isPresent = request.form.get("isPresent")
 
     new_record = {

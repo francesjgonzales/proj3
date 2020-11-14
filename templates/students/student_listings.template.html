@@ -15,7 +15,7 @@
         <td>{{each_student.first_name}}</td>
         <td>{{each_student.last_name}}</td>
         <td>{{each_student.date_of_birth}}</td>
-        <td>1PM</td>
+        <td><input type="date" class="form-control" name="clock_in"/></td>
         <td>6pm</td>
         <td>{{each_student.class_groupId}}</td>
         <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn-success">Edit </a></td>
