@@ -209,7 +209,7 @@ def process_parents_login():
 
 @app.route('/students/create')
 def show_create_student():
-    return render_template('create_student.template.html')
+    return render_template('students/create_student.template.html')
 
 
 @app.route('/students/create', methods=["POST"])
@@ -237,7 +237,7 @@ def show_edit_student(student_id):
     student = db.students.find_one({
         '_id': ObjectId(student_id)
     })
-    return render_template('teachers/edit_student.template.html',
+    return render_template('students/edit_student.template.html',
                            student=student)
 
 
@@ -245,7 +245,7 @@ def show_edit_student(student_id):
 def process_edit_student(student_id):
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
-    date_of_birth = int(request.form.get("date_of_birth"))
+    date_of_birth = request.form.get("date_of_birth")
 
     db.students.update_one({
         "_id": ObjectId(student_id)
@@ -295,7 +295,7 @@ def show_confirm_delete(student_id):
     students_to_be_deleted = db.students.find_one({
         "_id": ObjectId(student_id)
     })
-    return render_template('show_confirm_delete.template.html',
+    return render_template('students/show_confirm_delete.template.html',
                            student=students_to_be_deleted)
 
 
@@ -336,29 +336,24 @@ def process_search_form():
     first_name = request.form.get('first_name')
     class_groupId = request.form.get('class_groupId')
 
-    print(tags)
-
     critera = {}
 
     if first_name:
         critera['first_name'] = {
-            '$regex': name,
+            '$regex': first_name,
             '$options': 'i'  # i means 'case-insensitive'
         }
 
     if class_groupId:
         critera['class_groupId'] = {
-            '$regex': class_name,
-            '$options': 'i'
+            '$regex': class_groupId,
+            '$options': 'i'  # i means 'case-insensitive'
         }
 
-    # put all the search critera into a list for easier processing
-    searched_by = [student_name, class_groupId]
-
-    print(critera)
+    searched_by = [first_name, class_groupId]
 
     results = db.students.find(critera)
-    return render_template('students/display_students.template.html',
+    return render_template('students/display_student.template.html',
                            all_students=results,
                            searched_by=searched_by)
 

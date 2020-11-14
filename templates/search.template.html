@@ -1,18 +1,32 @@
 {% extends 'base.template.html' %}
 
 {% block content %}
-<form method="POST">
-	<div class="row">
-		<div class="col">
-			<label>Student name</label>
-			<input type="text" class="form-control" name="first_name"/>
-        </div>
-        <div class="col">
-            <label>Class Group</label>
-            <input type="text" class="form-control" name="class_groupId"/>
-        </div>
 
+ {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <span class="flashes">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        </span>
+    {% endif %}
+    {% endwith %}
+
+<form method="POST">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01">Student Name</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="Student Name" name="first_name">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01">Class Group</label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Student Name" name="class_groupId">
+        </div>
     </div>
-    <input type="submit" value="Search" class="btn btn-primary mt-3"/>
+
+  <button class="btn btn-primary btn-sm" type="submit">Search</button>
 </form>
+
+
+
 {% endblock %}
