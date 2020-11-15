@@ -1,0 +1,28 @@
+{% extends 'base.template.html' %}
+
+{% block content %}
+{% for each_student in all_students %}
+
+
+<div class="row">
+    <div class="col-sm">
+        <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="/static/images/turtle.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{each_student.first_name}} {{each_student.last_name}}</h5>
+                        <p class="card-text">Class {{each_student.class_groupId}}</p>
+                        <p class="card-text">Teacher {{each_student.teacher}}</p>
+                        <small>Clock in</small>
+                        <h2 class="badge">{{each_student.clock_in}}</h2><br>
+                        <small>Clock out</small>
+                        <h2 class="badge">{{each_student.clock_out}}</h2><br>
+                        <a href="{{ url_for('edit_students_attendance', student_id=each_student._id) }}" class="btn btn-success">Edit </a>
+                    </div>
+        </div>
+    </div>
+</div>
+
+
+{%endfor%}
+
+{% endblock %}

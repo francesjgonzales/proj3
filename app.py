@@ -112,6 +112,38 @@ def show_students():
                            all_students=all_students)
 
 
+@app.route('/students/attendance')
+def students_attendance():
+    all_students = db.students.find()
+    return render_template('students/student_attendance.template.html',
+                           all_students=all_students)
+
+
+@app.route('/students/attendance/<student_id>')
+def edit_students_attendance(student_id):
+    student = db.students.find_one({
+        '_id': ObjectId(student_id)
+    })
+    return render_template('students/student_edit_attendance.template.html',
+                           students=student)
+
+
+@app.route('/students/attendance/<student_id>', methods=["POST"])
+def process_students_attendance(student_id):
+    clock_in = request.form.get("clock_in")
+    clock_out = request.form.get("clock_out")
+
+    db.students.update_one({
+        "_id": ObjectId(student_id)
+    }, {
+        "$set": {
+            "clock_in": clock_in,
+            "clock_out": clock_out,
+        }
+    })
+    return redirect(url_for('students_attendance'))
+
+
 # STUDENT ATTENDANCE PAGE
 
 @app.route('/attendance')
@@ -222,13 +254,19 @@ def process_create_student():
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
     date_of_birth = request.form.get("date_of_birth")
+    clock_in = request.form.get("clock_in")
+    clock_out = request.form.get("clock_out")
     class_groupId = request.form.get("class_groupId")
+    teacher = request.form.get("teacher")
 
     new_record = {
         "first_name": first_name,
         "last_name": last_name,
         "date_of_birth": date_of_birth,
-        "class_groupId": class_groupId
+        "clock_in": clock_in,
+        "clock_out": clock_out,
+        "class_groupId": class_groupId,
+        "teacher": teacher
     }
 
     db.students.insert_one(new_record)

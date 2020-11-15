@@ -18,10 +18,6 @@
   </thead>
   <tbody>
     <tr>
-  {% for each_student in all_students %}
-        <td>{{each_student.first_name}}</td>
-  {% endfor %}
-
      {% for each_attendance in all_attendance %}
         <td>{{each_attendance.clock_in}}</td>
         <td>{{each_attendance.clock_out}}</td>

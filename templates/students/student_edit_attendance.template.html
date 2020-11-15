@@ -1,7 +1,7 @@
 {% extends 'base.template.html' %}
-{% block title %} Attendance {% endblock %}
+
 {% block content %}
-<form method="POST">
+
 <table class="table">
     <thead>
     <tr>
@@ -22,8 +22,7 @@
         <td><input type="time" class="form-control" name="clock_out"/></td>
         <td>{{each_student.class_groupId}}</td>
         <td>{{each_student.teacher}}</td>
-        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn-success">Edit </a></td>
-        <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn-danger">Delete </a></td>
+        <td><a href="{{ url_for('students_attendance') }}" class="btn btn-success">Submit</a></td>
     </tr>  
 
     {%endfor%}
@@ -32,7 +31,7 @@
 
 </table>
 
-    <input type="submit" class="btn btn-primary"/>
-</form>
+
+
 
 {% endblock %}

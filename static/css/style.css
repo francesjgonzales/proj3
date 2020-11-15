@@ -46,3 +46,7 @@ h1 {
     box-sizing: border-box;
   }
 }
+
+.card {
+      margin: 25px;
+}
