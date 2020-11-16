@@ -1,20 +1,36 @@
 {% extends 'base.template.html' %}
 {% block content %}
 
-<div class="container">
-<h1>Welcome, Teacher!</h1>
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Students</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
-  </ol>
-</nav>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Welcome, Teacher!</h1>
+        <p class="lead">Thank you for signing up. Explore the page by adding your students and sort them according to class groups</p>
 
+        <div class="row">
+            <div class="card" style="width: 13rem;">
+            <img class="card-img-top" src="static/images/fish.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Attendance</h5>
+                    <p class="card-text">You can login your student's attendance including their temparature</p>
+                    <a href = "{{ url_for ('show_students') }}" class="btn btn-success">Visit</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 13rem;">
+            <img class="card-img-top" src="static/images/teacher.svg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Search</h5>
+                    <p class="card-text">Search your students according to class group or by teacher's name</p>
+                    <a href = "{{ url_for ('show_search_form') }}" class="btn btn-success">Visit</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-{% include 'students/student_listings.template.html' %}
+
 
 
 

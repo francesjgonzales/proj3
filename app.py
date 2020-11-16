@@ -41,7 +41,9 @@ def home():
 
 @app.route('/teachers')
 def show_teachers():
-    return render_template('teachers/teacher_profile.template.html')
+    all_teachers = db.parents.find()
+    return render_template('teachers/teacher_profile.template.html',
+                           all_teachers=all_teachers)
 
 
 # TEACHER SIGN UP
@@ -66,7 +68,7 @@ def process_create_teacher():
 
     db.teachers.insert_one(new_record)
     flash("Sign up successful")
-    return redirect(url_for('show_students'))
+    return redirect(url_for('show_teachers'))
 
 
 # TEACHER LOGIN
@@ -90,7 +92,7 @@ def process_teacher_login():
             'email': email,
             'password': password
         })
-    return redirect(url_for("show_students"))
+    return redirect(url_for("show_teachers"))
 
 
 # PARENTS MAIN PAGE
@@ -161,7 +163,7 @@ def show_students():
                            all_students=all_students)
 
 
-# CREATE STUDENT 
+# CREATE STUDENT
 
 @app.route('/students/create')
 def show_create_student():
@@ -229,7 +231,7 @@ def process_edit_student(student_id):
     return redirect(url_for('show_students'))
 
 
-# DELETE STUDENT 
+# DELETE STUDENT
 
 @app.route('/students/delete/<student_id>')
 def show_confirm_delete(student_id):
@@ -245,7 +247,7 @@ def confirm_delete(student_id):
     db.students.remove({
         "_id": ObjectId(student_id)
     })
-    return redirect(url_for("show_students"))   
+    return redirect(url_for("show_students"))
 
 
 # SEARCH

@@ -8,7 +8,9 @@
 
 body {
     background-color: rgb(83,117,245, .50);
-
+}
+.jumbotron {
+    background-color: rgb(255, 176, 72);
 }
 
 .img-fluid {
