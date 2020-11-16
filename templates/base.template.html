@@ -30,7 +30,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">My profile</a>
+        <a class="nav-link" href="{{ url_for('show_teachers') }}">My profile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -40,45 +40,20 @@
   </div>
 </nav>
 
-
-
-
-
-
-<!-- <div class="container-fluid">
-  <div class="row">
-
-    <div class="col-sm">
-      <p>CLASS GROUP</p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="container">
+        <h3 class="flashes text-center" style="color: yellow">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        </h3>
     </div>
-    <div class="col-sm">
-      <p>PARENTS</p>
-    </div>
-    <div class="col-sm">
-      <p>ATTENDANCE</p>
-    </div>
-    <div class="col-sm">
-    <a href="{{ url_for('show_attendance')}}"><img src="/static/images/calendar-16x16.png" alt="calendar_icon"></a>
-    </div>
-  </div>
-</div> -->
-
-
-
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                <div class="container">
-                    <h3 class="flashes text-center" style="color: yellow">
-                    {% for message in messages %}
-                    {{ message }}
-                    {% endfor %}
-                    </h3>
-                </div>
-                {% endif %}
-                {% endwith %}
+    {% endif %}
+    {% endwith %}
 
 <div class="container">
-{% block content %} {%endblock%}
+    {% block content %} {%endblock%}
 </div>
 
 

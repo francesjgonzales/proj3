@@ -2,26 +2,17 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div class="card" style="width: 20rem;">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">TIME IS</h6>
-                    <h2><span id="clock"></span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div class="card" style="width: 20rem;">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">Date today</h6>
-                    <h3><span id="date">{{today.strftime('%B-%d-%Y')}}</span></h3>
-                </div>
-            </div>
-        </div>
-    </div>
+<h1>Welcome, Teacher!</h1>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+
 </div>
 
-{% include 'search.template.html' %}
 
 {% endblock %}

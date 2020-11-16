@@ -3,19 +3,19 @@
 
 <div class="container">
 <h1>Welcome, Teacher!</h1>
-    {% for each_teacher in all_teachers %}
-    <tr>
-        <td>{{each_teacher.first_name}}</td>
-        <td>{{each_teacher.last_name}}</td>
-        <td>{{each_teacher.email}}</td>
-        <td>{{each_teacher.password}}</td>
-        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn-success">Edit </a></td>
-        <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn-danger">Delete </a></td>
-    </tr>  
 
-    {%endfor%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Students</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
 
 </div>
+
+{% include 'students/student_listings.template.html' %}
+
 
 
 {% endblock %}
