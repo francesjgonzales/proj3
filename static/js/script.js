@@ -15,3 +15,5 @@ form.classList.add('was-validated');
 });
 }, false);
 })();
+
+$('.carousel').carousel()

@@ -3,7 +3,19 @@
 {% block content %}
 
 <div class="container">
-<h1>Sign up</h1>
+<h2>Sign up</h2>
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="container">
+                    <h3 class="flashes text-center" style="color: yellow">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    </h3>
+                </div>
+                {% endif %}
+                {% endwith %}
 
 <form method="POST" class="needs-validation" novalidate >
     <div class="form-row">
@@ -34,7 +46,7 @@
     </div>
   </div>
 
-  <button class="btn btn-primary btn-sm" type="submit">Sign up</button>
+  <button class="btn btn" type="submit">Sign up</button>
 </form>
 
 </div>

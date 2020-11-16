@@ -11,13 +11,11 @@
 
     <link rel="stylesheet" href="/static/css/style.css" />
     {% block css %} {% endblock %}
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="manifest" href="static/site.webmanifest">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-
-	<title>SAT</title>
+	<title>{% block title %}SAT{% endblock %}</title>
 </head>
 
 <body>
@@ -57,6 +55,7 @@
 </nav>
 
 
+
 <div class="container-fluid">
   <div class="row">
 
@@ -75,9 +74,24 @@
   </div>
 </div>
 
+
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="container">
+                    <h3 class="flashes text-center" style="color: yellow">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    </h3>
+                </div>
+                {% endif %}
+                {% endwith %}
+
 <div class="container">
 {% block content %} {%endblock%}
 </div>
+
 
 <!-- Bootstrap javascript -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -85,6 +99,7 @@
 
 <!-- custom javascript -->
 <script src="/static/js/script.js"></script>
+{% block js %}{% endblock %}
 
 </body>
 

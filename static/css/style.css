@@ -6,47 +6,78 @@
   box-sizing: border-box;
 }
 
+body {
+    background-color: #5375F5;
+}
+
+.img-fluid {
+  width: 100%;
+}
+
 #main {
     margin: auto;
     padding: 4em;
     text-align: center
 }
 
-p, h4, ul, li {
+/* #mainImg {
+    position: absolute;
+    right: 0em;
+    top: 0em;
+    z-index: -1;
+
+} */
+
+h1, h2, h3, h4, ul, li, p, td, th, .carousel-caption, .invalid-feedback {
     font-family: 'Nunito', sans-serif;
-    color: #767679;
+    color: #ffffff;
     font-weight: 700;
+
 }
 
-h1 {
-    font-family: 'Nunito', sans-serif;
-    color: #767679;
-    font-weight: 800;
-}
-
-.container {
-  margin: auto;
-  padding: 2em;
-}
-
-.navbar-brand {
-    color: #5375F5;
+mark {
+   background-color: #5375F5 
 }
 
 .container-fluid {
     margin: auto;
     padding: 2em;
-    background-color: #F9F9F9;
     text-align: center;
 }
 
-@media (max-width: 375px) {
+.btn {
+    background-color:#ffffff;
+}
+
+@media (max-width: 576px) {
   * {
-    font-size: medium;
+    font-size: small;
     box-sizing: border-box;
   }
 }
 
 .card {
       margin: 25px;
+      text-align: center;
+}
+
+.carousel-caption  {
+  padding-bottom: 35vh;
+  text-align: left;
+}
+
+@media (max-width: 576px) {
+div.carousel-caption {
+    padding-bottom: 15vh;
+    font-size: small;
+    text-align: left, center;
+  }
+}
+@media (max-width: 576px) {
+div.mainImg{
+    padding-top: 15vh;
+    padding-bottom: 0vh;
+    font-size: small;
+    text-align: left, center;
+  }
 }

@@ -14,6 +14,10 @@ MONGO_URL = os.environ.get('MONGO_URL')
 DB_NAME = "student_tracker"
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# CONNECT TO CLOUDINARY
+CLOUD_NAME = os.environ.get("CLOUD_NAME")
+UPLOAD_PRESET = os.environ.get("UPLOAD_PRESET")
+
 # CONNECT TO MONGODB
 client = pymongo.MongoClient(MONGO_URL)
 db = client['student_tracker']
@@ -23,8 +27,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 
 # SET UP DATE AND TIME
-
-currentDate = datetime.datetime.now()
+today = datetime.datetime.today()
 
 
 # HOME
@@ -91,9 +94,9 @@ def process_teacher_login():
 
 @app.route('/teachers')
 def show_teachers():
-    all_teachers = db.teachers.find()
+    all_students = db.students.find()
     return render_template('teachers/all_teachers.template.html',
-                           all_teachers=all_teachers)
+                           all_students=all_students, today=today)
 
 
 # TEACHER WELCOME PAGE
@@ -231,14 +234,11 @@ def process_parents_login():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if len(email) == 0:
-        flash("Name cannot be empty", "error")
-        return redirect(url_for('teacher_login'))
-
-    db.teachers.find_one({
+    db.parent.find_one({
         'email': email,
         'password': password
     })
+
     return redirect(url_for("show_parents"))
 
 
@@ -266,7 +266,7 @@ def process_create_student():
         "clock_in": clock_in,
         "clock_out": clock_out,
         "class_groupId": class_groupId,
-        "teacher": teacher
+        "teacher": teacher,
     }
 
     db.students.insert_one(new_record)
@@ -369,15 +369,16 @@ def confirm_delete_teacher(teacher_id):
 
 # SEARCH
 
-@app.route('/students/search')
+@app.route('/teachers')
 def show_search_form():
-    return render_template('search.template.html')
+    return render_template('all_teachers.template.html')
 
 
-@app.route('/students/search', methods=['POST'])
+@app.route('/teachers/search', methods=['POST'])
 def process_search_form():
     first_name = request.form.get('first_name')
     class_groupId = request.form.get('class_groupId')
+    teacher = request.form.get('teacher')
 
     critera = {}
 
@@ -393,7 +394,13 @@ def process_search_form():
             '$options': 'i'  # i means 'case-insensitive'
         }
 
-    searched_by = [first_name, class_groupId]
+    if teacher:
+        critera['teacher'] = {
+            '$regex': teacher,
+            '$options': 'i'  # i means 'case-insensitive'
+        }
+
+    searched_by = [first_name, class_groupId, teacher]
 
     results = db.students.find(critera)
     return render_template('students/display_student.template.html',
@@ -403,6 +410,7 @@ def process_search_form():
 
 @app.route('/logout')
 def logout():
+    flash("You have been logged out!")
     return redirect(url_for("home"))
 
 
