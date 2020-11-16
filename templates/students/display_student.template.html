@@ -1,5 +1,7 @@
+{% extends 'base.template.html' %}
+
 {% block content %}
-<h1>Display results</h1>
+<h2>Display results</h2>
 <p> Searching by {{",".join(searched_by) }}
 {% include 'students/student_listings.template.html' %}
 

@@ -7,7 +7,8 @@
 }
 
 body {
-    background-color: #5375F5;
+    background-color: rgb(83,117,245, .50);
+
 }
 
 .img-fluid {
@@ -20,17 +21,23 @@ body {
     text-align: center
 }
 
-/* #mainImg {
-    position: absolute;
-    right: 0em;
-    top: 0em;
-    z-index: -1;
+.mw-100{
+    filter: brightness(80%);
 
-} */
+}
 
-h1, h2, h3, h4, ul, li, p, td, th, .carousel-caption, .invalid-feedback {
+.container2 {
+    margin: 15vh;
+    padding: 1vh;
+}
+
+.table {
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, ul, li, p, td, th, .carousel-caption, .invalid-feedback, .btn, .form-control {
     font-family: 'Nunito', sans-serif;
-    color: #ffffff;
+    color: rgb(59, 11, 114);
     font-weight: 700;
 
 }
@@ -40,13 +47,13 @@ mark {
 }
 
 .container-fluid {
-    margin: auto;
-    padding: 2em;
-    text-align: center;
+    margin: 5vh;
 }
 
 .btn {
-    background-color:#ffffff;
+    background-color: rgb(255, 176, 72);
+    color: rgb(59, 11, 114);
+
 }
 
 @media (max-width: 576px) {

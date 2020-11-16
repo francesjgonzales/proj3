@@ -1,5 +1,7 @@
+
+<div class="container-fluid">
 <div class="table-responsive">
-<table class="table">
+<table class="table table-hover table-responsive-xl ">
     <thead>
     <tr>
         <th>First Name</th>
@@ -9,6 +11,7 @@
         <th>Clock Out</th>
         <th>Class Group</th>
         <th>Teacher</th>
+        <th>Attendance</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -21,8 +24,9 @@
         <td>{{each_student.clock_out}}</td>
         <td>{{each_student.class_groupId}}</td>
         <td>{{each_student.teacher}}</td><br>
-        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn-success">Edit </a></td>
-        <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn-danger">Delete </a></td>
+        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn">Submit </a></td>
+        <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn">Edit </a></td>
+        <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn">Delete </a></td>
     </tr>  
 
     {%endfor%}
@@ -31,5 +35,5 @@
 
 </table>
 </div>
-    <a href="{{ url_for('show_create_student') }}" class="btn btn-success"> Add student</a>
-
+    <a href="{{ url_for('show_create_student') }}" class="btn btn"> Add student</a>
+</div>

@@ -50,10 +50,6 @@ def process_create_teacher():
     email = request.form.get("email")
     password = request.form.get("password")
 
-    if len(first_name) == 0:
-        flash("Name cannot be empty", "error")
-        return redirect(url_for('show_create_teacher'))
-
     new_record = {
         "first_name": first_name,
         "last_name": last_name,
@@ -63,7 +59,23 @@ def process_create_teacher():
 
     db.teachers.insert_one(new_record)
     flash("Sign up successful")
-    return redirect(url_for('show_teacher_main'))
+    return redirect(url_for('show_teachers'))
+
+
+# TEACHER PROFILE
+
+@app.route('/teachers/profile')
+def show_teacher_main():
+    return render_template('teachers/teacher_profile.template.html')
+
+
+# TEACHERS LIST
+
+@app.route('/teachers')
+def show_teachers():
+    all_students = db.students.find()
+    return render_template('teachers/all_teachers.template.html',
+                           all_students=all_students, today=today)
 
 
 # TEACHER LOGIN
@@ -87,23 +99,7 @@ def process_teacher_login():
             'email': email,
             'password': password
         })
-    return redirect(url_for("show_teachers"))
-
-
-# TEACHERS LIST
-
-@app.route('/teachers')
-def show_teachers():
-    all_students = db.students.find()
-    return render_template('teachers/all_teachers.template.html',
-                           all_students=all_students, today=today)
-
-
-# TEACHER WELCOME PAGE
-
-@app.route('/teachers/main')
-def show_teacher_main():
-    return render_template('teachers/teacher_main.template.html')
+    return redirect(url_for("show_teacher_main"))
 
 
 # STUDENT PROFILE
@@ -131,17 +127,19 @@ def edit_students_attendance(student_id):
                            students=student)
 
 
-@app.route('/students/attendance/<student_id>', methods=["POST"])
+@app.route('/students/attendance/edit/<student_id>', methods=["POST"])
 def process_students_attendance(student_id):
     clock_in = request.form.get("clock_in")
     clock_out = request.form.get("clock_out")
+    first_name = request.form.get("first_name")
 
     db.students.update_one({
-        "_id": ObjectId(student_id)
+        "_id": ObjectId(student_id),
     }, {
         "$set": {
             "clock_in": clock_in,
             "clock_out": clock_out,
+            "first_name": first_name
         }
     })
     return redirect(url_for('students_attendance'))
@@ -281,7 +279,7 @@ def show_edit_student(student_id):
         '_id': ObjectId(student_id)
     })
     return render_template('students/edit_student.template.html',
-                           student=student)
+                           student=student, today=today)
 
 
 @app.route('/students/edit/<student_id>', methods=["POST"])
@@ -289,6 +287,10 @@ def process_edit_student(student_id):
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
     date_of_birth = request.form.get("date_of_birth")
+    clock_in = request.form.get("clock_in")
+    clock_out = request.form.get("clock_out")
+    class_groupId = request.form.get("class_groupId")
+    teacher = request.form.get("teacher")
 
     db.students.update_one({
         "_id": ObjectId(student_id)
@@ -296,39 +298,43 @@ def process_edit_student(student_id):
         "$set": {
             "first_name": first_name,
             "last_name": last_name,
-            "date_of_birth": date_of_birth
+            "date_of_birth": date_of_birth,
+            "clock_in": clock_in,
+            "clock_out": clock_out,
+            "class_groupId": class_groupId,
+            "teacher": teacher
         }
     })
     return redirect(url_for('show_students'))
 
 
-@app.route('/teachers/edit/<teacher_id>')
-def show_edit_teacher(teacher_id):
-    teacher = db.teachers.find_one({
-        '_id': ObjectId(teacher_id)
-    })
-    return render_template('teachers/edit_teacher.template.html',
-                           teacher=teacher)
+# @app.route('/teachers/edit/<teacher_id>')
+# def show_edit_teacher(teacher_id):
+#     teacher = db.teachers.find_one({
+#         '_id': ObjectId(teacher_id)
+#     })
+#     return render_template('teachers/edit_teacher.template.html',
+#                            teacher=teacher)
 
 
-@app.route('/teachers/edit/<teacher_id>', methods=["POST"])
-def process_edit_teacher(teacher_id):
-    first_name = request.form.get("first_name")
-    last_name = request.form.get("last_name")
-    email = request.form.get("email")
-    password = request.form.get("password")
+# @app.route('/teachers/edit/<teacher_id>', methods=["POST"])
+# def process_edit_teacher(teacher_id):
+#     first_name = request.form.get("first_name")
+#     last_name = request.form.get("last_name")
+#     email = request.form.get("email")
+#     password = request.form.get("password")
 
-    db.teachers.update_one({
-        "_id": ObjectId(teacher_id)
-    }, {
-        "$set": {
-            "first_name": first_name,
-            "last_name": last_name,
-            "email": email,
-            "password": password
-        }
-    })
-    return redirect(url_for('show_teachers'))
+#     db.teachers.update_one({
+#         "_id": ObjectId(teacher_id)
+#     }, {
+#         "$set": {
+#             "first_name": first_name,
+#             "last_name": last_name,
+#             "email": email,
+#             "password": password
+#         }
+#     })
+#     return redirect(url_for('show_teachers'))
 
 
 # DELETE STUDENT OR TEACHER PROFILE
@@ -350,28 +356,28 @@ def confirm_delete(student_id):
     return redirect(url_for("show_students"))
 
 
-@app.route('/teachers/delete/<teacher_id>')
-def show_confirm_delete_teacher(teacher_id):
-    teachers_to_be_deleted = db.teachers.find_one({
-        "_id": ObjectId(teacher_id)
-    })
-    return render_template('teachers/confirm_delete_teacher.template.html',
-                           teacher=teachers_to_be_deleted)
+# @app.route('/teachers/delete/<teacher_id>')
+# def show_confirm_delete_teacher(teacher_id):
+#     teachers_to_be_deleted = db.teachers.find_one({
+#         "_id": ObjectId(teacher_id)
+#     })
+#     return render_template('teachers/confirm_delete_teacher.template.html',
+#                            teacher=teachers_to_be_deleted)
 
 
-@app.route('/teachers/delete/<teacher_id>', methods=["POST"])
-def confirm_delete_teacher(teacher_id):
-    db.teachers.remove({
-        "_id": ObjectId(teacher_id)
-    })
-    return redirect(url_for("show_teachers"))
+# @app.route('/teachers/delete/<teacher_id>', methods=["POST"])
+# def confirm_delete_teacher(teacher_id):
+#     db.teachers.remove({
+#         "_id": ObjectId(teacher_id)
+#     })
+#     return redirect(url_for("show_teachers"))
 
 
 # SEARCH
 
-@app.route('/teachers')
+@app.route('/teachers/search')
 def show_search_form():
-    return render_template('all_teachers.template.html')
+    return render_template('search.template.html')
 
 
 @app.route('/teachers/search', methods=['POST'])
@@ -403,6 +409,7 @@ def process_search_form():
     searched_by = [first_name, class_groupId, teacher]
 
     results = db.students.find(critera)
+
     return render_template('students/display_student.template.html',
                            all_students=results,
                            searched_by=searched_by)

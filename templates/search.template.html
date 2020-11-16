@@ -1,14 +1,7 @@
-{% block content %}
+{% extends 'base.template.html' %}
 
- {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <span class="flashes">
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-        </span>
-    {% endif %}
-    {% endwith %}
+{% block content %}
+<h2>Search</h2>
 
 <form method="POST">
     <div class="form-row">
@@ -26,7 +19,7 @@
         </div>
     </div>
 
-  <button class="btn btn-primary btn-sm" type="submit">Search</button>
+  <button class="btn btn" type="submit">Search</button>
 </form>
 
 

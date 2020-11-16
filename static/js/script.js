@@ -16,4 +16,19 @@ form.classList.add('was-validated');
 }, false);
 })();
 
-$('.carousel').carousel()
+
+// for clock
+(function () {
+
+  var clockElement = document.getElementById( "clock" );
+
+  function updateClock ( clock ) {
+    clock.innerHTML = new Date().toLocaleTimeString();
+  }
+
+  setInterval(function () {
+      updateClock( clockElement );
+  }, 1000);
+
+}());
+
