@@ -7,7 +7,7 @@ You may access the deployed website [here] (http).
  
 ## UX
 
-This website is designed for teachers to register the student, assign them to a class group, track each student's attendance and temperature, and update student records. The purpose of this website is for teacher to have access to the database where all records are inside. 
+This website is designed for teachers to register the student, assign them to a class group, track each student's attendance and temperature, and update student records. Teachers will be the main user in this website and in later development, parents will be the secondary user where communication and chat group will be created. This website is for internal use where parents will be given special access by teachers. 
 
 
 ### User Story
@@ -244,34 +244,48 @@ print(os.environ.get('MONGO_URL'))
 command + shift + readability
 ```
 
-Tasks performed by **Teacher** in order to achieve certain goals.
+I created 2 user logins for this page, **Teacher** and **Parent**. At this stage of the project, my focus is to get the flow of the website and improve on ux. Authentication will be done on second part of the project.
 
-1. Sign up page
+### Both users have similar forms to fill up on login and sign up.
 
-   1. CREATE teacher's account to get access to class groups, student list and attendance. 
-   2. After signing up, teacher will go to **Teacher's Main page**, where clickable buttons of **Class Group** to check on students under specific class group, **Add Class Group** to create new class group and add list of students & **Agenda** where user can add tasks for the day.
-   3. In the **Class Group** page, the list of students with student's first and last names, date of birth and attendance status are shown. The teacher can edit or delete information.
-   4. 
+Here are given tasks performed by **Teacher** in order to achieve certain goals.
+
+1. Sign up an account (This is similar to parent's sign up too)
+
+   1. CREATE teacher's account to get access to class groups, student list and attendance.
+    - Form includes First and last names of the user, email and password.  
+   2. After signing up, teacher will be lead to **Teacher's profile page**, 
+   
+2. Add a student, access attendance and delete student profile
+
+    Once the teacher get an access, a brief explanation of what this page is about and clickable buttons are shown:
+
+    - **Attendance**, to view the student's profile and attendance. 
+
+        - **Add Student** The teacher adds student profile by filling up form that includes the first and last names, date of birth, Class group and teacher assigned to class group. 
+
+        - **Clock in and clock out** The teacher can input the time on when the student enters and leaves the student care. (*During usability testing, the user thought that she also has to key in the timing during the registration process since these were part of the form.) 
+
+        - **Temparature check** teacher can key in the student's temparature for COVID-19 contract tracing purpose.
+
+        - **Edit** teacher can edit the student profile by editing the registration form, clock in and out and temparatures. 
+
+        - **Delete** Teacher can delete the student's profile which includes, first and last names, date of birth, clock in and out, temparature, class group and teacher.
+
+    - **Search**, to search based on Student name, Class Group and Teacher's name. 
+
+        - **Display Search** The user will see the results based on what they searched about.
+
+
+Here are given tasks performed by **Parent** in order to achieve certain goals.
+
+1. As explained above, sign up is similar to teacher. 
 
 ### 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+This website is mobile responsive and can be used in mobile and tablets. 
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
 
