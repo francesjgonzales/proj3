@@ -2,13 +2,13 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active"><a href="#">Students</a></li>
+    <li class="breadcrumb-item"><a href="{{url_for('show_search_form')}}">Search</a></li>
+    <li class="breadcrumb-item active"><a href="#">Main</a></li>
   </ol>
 </nav>
 
 
-<div class="container-fluid">
+<div class="container">
     <div class="table-responsive">
     <table class="table table-hover table-responsive-xl ">
         <thead>
@@ -33,7 +33,7 @@
             <td>{{each_student.clock_out}}</td>
             <td>{{each_student.class_groupId}}</td>
             <td>{{each_student.teacher}}</td><br>
-            <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn">Submit </a></td>
+            <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn">Update </a></td>
             <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn">Edit </a></td>
             <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn">Delete </a></td>
         </tr>  

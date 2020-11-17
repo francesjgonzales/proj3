@@ -78,20 +78,16 @@ def teacher_login():
     return render_template('teachers/login_teacher.template.html')
 
 
-@app.route('/teachers/login', methods=["POST"])
+@app.route('/teachers/login', methods=["POST", "GET"])
 def process_teacher_login():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if len(email) == 0:
-        flash("Please fill up email", "error")
-        return redirect(url_for('teacher_login'))
+    db.teachers.find_one({
+        'email': email,
+        'password': password
+    })
 
-    else:
-        db.teachers.find_one({
-            'email': email,
-            'password': password
-        })
     return redirect(url_for("show_teachers"))
 
 
@@ -213,7 +209,7 @@ def process_edit_student(student_id):
     clock_in = request.form.get("clock_in")
     clock_out = request.form.get("clock_out")
     class_groupId = request.form.get("class_groupId")
-    teacher = request.form.get("teacher")
+    teacher_first_name = request.form.get("teacher_first_name")
 
     db.students.update_one({
         "_id": ObjectId(student_id)
@@ -225,7 +221,7 @@ def process_edit_student(student_id):
             "clock_in": clock_in,
             "clock_out": clock_out,
             "class_groupId": class_groupId,
-            "teacher": teacher
+            "teacher_first_name": teacher_first_name
         }
     })
     return redirect(url_for('show_students'))

@@ -1,7 +1,7 @@
 {% extends 'index.template.html' %}
 
 {% block content %}
-<h1>Login</h1>
+<h1>Parent Login</h1>
 <form method="POST" class="needs-validation" novalidate >
     <div class="form-row">
         <div class="col-md-4 mb-3">
@@ -14,7 +14,7 @@
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="validationCustom04">Password</label>
-            <input type="text" class="form-control" id="validationCustom04" placeholder="Password" required>
+            <input type="password" class="form-control" id="validationCustom04" placeholder="Password" name="password" maxlength="8" required>
         <div class="invalid-feedback">Please provide a maximum of 8 characters.</div>
     </div>
   </div>

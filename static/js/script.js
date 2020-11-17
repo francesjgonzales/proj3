@@ -17,7 +17,7 @@ form.classList.add('was-validated');
 })();
 
 
-// for clock
+
 (function () {
 
   var clockElement = document.getElementById( "clock" );
