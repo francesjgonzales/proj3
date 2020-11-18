@@ -2,7 +2,7 @@
 
 A website that help teachers manage student attendance record.
 
-You may access the deployed website [here] (http). 
+You may access the deployed website [here] (https://fg-proj3-student-attendance.herokuapp.com/). 
 
  
 ## UX
@@ -269,13 +269,15 @@ Here are given tasks performed by **Teacher** in order to achieve certain goals.
 
         - **Display Search** The user will see the results based on what they searched about.
 
+### Parents tasks
+Parents have the similar sign up and login method as the teacher. At this stage, they can view their kids profiles. In later development, they can get access to attendance and communicate with teachers on their school updates and social development
 
-Here are given tasks performed by **Parent** in order to achieve certain goals.
+### Search bar
+It has 3 search categories, Student's name, Class Group and Teachers name. When the submit button is clicked with blank inputs, it will lead to display page showing the Student's Main Database. If they key in under either of the 3 categories, it will still lead to the display page showing the Student's Main Database. 
 
-1. As explained above, sign up is similar to teacher. 
+For later stage of development, I will sort the display page according to the categories and the Principal or School Manager will only have the private access to the Student Main Database. 
 
-### 
-
+### Mobile Responsive
 This website is mobile responsive and can be used in mobile and tablets. 
 
 
@@ -326,7 +328,7 @@ git push heroku master
 1. Go to your assigned app file
 2. In settings, go to Config Vars to add in the Mongo_URL and Secret_key.
 
-My deployed project can be accessed [here]()
+My deployed project can be accessed [here](https://fg-proj3-student-attendance.herokuapp.com/)
 
 
 ## Credits
@@ -337,6 +339,9 @@ My deployed project can be accessed [here]()
 - Showing current time code was copied from [https://stackoverflow.com/questions/28415178/how-do-you-show-the-current-time-on-a-web-page]
 - Parsing and Formatting Dates in Python with datetime by Pretty Printed [https://www.youtube.com/watch?v=zY02utxcauo]
 - Children's image take from [freepik](https://www.freepik.com/free-photo/funny-boy-genius-wearing-glasses-studio-shot_4745414.htm#page=1&query=asian%20child&position=41)
+- Attendance image photo by Jeswin Thomas on Unsplash
+- Search image photo by Glenn Carstens-Peters on Unsplash
+- Student profile image photo by NeONBRAND on Unsplash
 
 ### Media
 - The parents icon used in the website is made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

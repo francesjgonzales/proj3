@@ -373,7 +373,7 @@ def process_search_form():
     searched_by = [first_name, class_groupId, teacher]
 
     results = db.students.find(critera)
-
+    
     return render_template('students/display_student.template.html',
                            all_students=results,
                            searched_by=searched_by)

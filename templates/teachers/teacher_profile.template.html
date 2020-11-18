@@ -4,24 +4,32 @@
     <div class="container">
         <h1 class="display-4">Welcome, Teacher!</h1>
 
-        <p class="lead">Thank you for signing up. Explore the page by adding your students and sorting them according to your class groups</p>
+        <p class="lead">Explore the page by adding your students and sorting them according to your class groups</p>
 
         <div class="row">
             <div class="card" style="width: 13rem;">
-            <img class="card-img-top" src="static/images/fish.png" alt="Card image cap">
+            <img class="card-img-top" src="static/images/kid_attendance.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Attendance</h5>
-                    <p class="card-text">You can login your student's attendance including their temparature</p>
-                    <a href = "{{ url_for ('show_student/attendance') }}" class="btn btn-success">Visit</a>
+                    <p class="card-text">Check student's attendance and update timing and temparature checks.</p>
+                    <a href = "{{ url_for ('show_student_attendance') }}" class="btn btn-success">Visit</a>
                 </div>
             </div>
 
             <div class="card" style="width: 13rem;">
-            <img class="card-img-top" src="static/images/teacher.svg" alt="Card image cap">
+            <img class="card-img-top" src="static/images/search-image.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Search</h5>
-                    <p class="card-text">Search your students according to class group or by teacher's name</p>
+                    <p class="card-text">Search according to student's name, class group or teacher</p>
                     <a href = "{{ url_for ('show_search_form') }}" class="btn btn-success">Visit</a>
+                </div>
+            </div>
+            <div class="card" style="width: 13rem;">
+            <img class="card-img-top" src="static/images/children_profile.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Student Profile</h5>
+                    <p class="card-text">View your student's profile</p>
+                    <a href = "{{ url_for ('show_student_profile') }}" class="btn btn-success">Visit</a>
                 </div>
             </div>
 

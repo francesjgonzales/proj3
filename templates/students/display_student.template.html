@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2>Display results</h2>
-<p> Searching by {{",".join(searched_by) }}
+
 {% include 'students/student_listings.template.html' %}
 
  {% with messages = get_flashed_messages() %}
