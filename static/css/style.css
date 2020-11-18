@@ -71,15 +71,15 @@ mark {
 }
 
 div.mainImg  {
-  padding-top: 40px;
-  padding-bottom: 25px;
+  padding-top: 40vh;
+  padding-bottom: 25vh;
   text-align: left;
 }
 
 @media (max-width: 375px) {
   .carousel-caption, div.mainImg {
-    padding-top: 30vh;
-    padding-bottom: 15vh;
+    padding-top: 20vh;
+    padding-bottom: 10vh;
     font-size: small;
     text-align: left, center;
   }
