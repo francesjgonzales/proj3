@@ -1,11 +1,10 @@
 {% extends 'base.template.html' %}
 {% block content %}
 
-<div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">Welcome, Teacher!</h1>
 
-        <p class="lead">Thank you for signing up. Explore the page by adding your students and sort them according to class groups</p>
+        <p class="lead">Thank you for signing up. Explore the page by adding your students and sorting them according to your class groups</p>
 
         <div class="row">
             <div class="card" style="width: 13rem;">
@@ -13,7 +12,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Attendance</h5>
                     <p class="card-text">You can login your student's attendance including their temparature</p>
-                    <a href = "{{ url_for ('show_students') }}" class="btn btn-success">Visit</a>
+                    <a href = "{{ url_for ('show_student/attendance') }}" class="btn btn-success">Visit</a>
                 </div>
             </div>
 
@@ -28,7 +27,6 @@
 
         </div>
     </div>
-</div>
 
 
 

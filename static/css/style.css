@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: rgb(83,117,245, .50);
+    background-color: rgb(83,117,245, .25);
 }
 
 .img-fluid {
@@ -34,11 +34,15 @@ body {
     background-color: #ffffff;
 }
 
-h1, h2, h3, h4, ul, li, p, td, th, .carousel-caption, .invalid-feedback, .btn, .form-control {
+h1, h2, h3, h4, ul, li, p, td, th, .carousel-caption, .invalid-feedback, .btn, .form-control, .label {
     font-family: 'Nunito', sans-serif;
     color: rgb(59, 11, 114);
     font-weight: 700;
 
+}
+
+.href {
+    color: #ffffff;
 }
 
 mark {

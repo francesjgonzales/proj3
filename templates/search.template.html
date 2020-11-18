@@ -1,7 +1,20 @@
 {% extends 'base.template.html' %}
 
 {% block content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{url_for('show_search_form')}}">Search</a></li>
+    <li class="breadcrumb-item active"><a href="{{url_for('show_student_profile')}}">Student Profile</a></li>
+    <li class="breadcrumb-item active"><a href="{{url_for('show_student_attendance')}}">Student Attendance</a></li>
+  </ol>
+</nav>
+
+<br>
+<br>
+<div class="container">
 <h2>Search</h2>
+<p> Search according to Student's name, Class Group or Teacher</p>
 
 <form method="POST">
     <div class="form-row">
@@ -21,6 +34,6 @@
 
   <button class="btn btn" type="submit">Search</button>
 </form>
-
+</div>
 
 {% endblock %}

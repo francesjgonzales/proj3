@@ -231,6 +231,93 @@ def process_edit_student(student_id):
     return redirect(url_for('show_students'))
 
 
+# STUDENT PROFILE
+
+@app.route('/students/profile')
+def show_student_profile():
+    all_student_profile = db.students.find()
+    return render_template('students/student_profile.template.html',
+                           all_student_profile=all_student_profile)
+
+
+# EDIT STUDENT PROFILE
+
+@app.route('/students/profile/edit/<student_id>')
+def show_edit_student_profile(student_id):
+    all_student_profile = db.students.find_one({
+        '_id': ObjectId(student_id)
+    })
+    return render_template('students/edit_student_profile.template.html',
+                           all_student_profile=all_student_profile)
+
+
+@app.route('/students/profile/edit/<student_id>', methods=["POST"])
+def process_edit_student_profile(student_id):
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    date_of_birth = request.form.get("date_of_birth")
+    class_groupId = request.form.get("class_groupId")
+    teacher_first_name = request.form.get("teacher_first_name")
+
+    db.students.update_one({
+        "_id": ObjectId(student_id)
+    }, {
+        "$set": {
+            "first_name": first_name,
+            "last_name": last_name,
+            "date_of_birth": date_of_birth,
+            "class_groupId": class_groupId,
+            "teacher_first_name": teacher_first_name
+        }
+    })
+    return redirect(url_for('show_student_profile'))
+
+
+# STUDENT ATTENDANCE
+
+@app.route('/students/attendance')
+def show_student_attendance():
+    all_student_attendance = db.students.find()
+    return render_template('students/student_attendance.template.html',
+                           all_student_attendance=all_student_attendance)
+
+
+# EDIT STUDENT PROFILE
+
+@app.route('/students/attendance/edit/<student_id>')
+def show_edit_student_attendance(student_id):
+    all_student_attendance = db.students.find_one({
+        '_id': ObjectId(student_id)
+    })
+    return render_template('students/edit_student_attendance.template.html',
+                           all_student_attendance=all_student_attendance,
+                           today=today)
+
+
+@app.route('/students/attendance/edit/<student_id>', methods=["POST"])
+def process_edit_student_attendance(student_id):
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    temparature = request.form.get("temparature")
+    clock_in = request.form.get("clock_in")
+    clock_out = request.form.get("clock_out")
+    remarks = request.form.get("remarks")
+
+    db.students.update_one({
+        "_id": ObjectId(student_id)
+    }, {
+        "$set": {
+            "first_name": first_name,
+            "last_name": last_name,
+            "temparature": temparature,
+            "clock_in": clock_in,
+            "clock_out": clock_out,
+            "remarks": remarks
+        }
+    })
+    return redirect(url_for('show_student_attendance'))
+
+
 # DELETE STUDENT FROM MAIN DATABASE
 
 @app.route('/students/delete/<student_id>')
