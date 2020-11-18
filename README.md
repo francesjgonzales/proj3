@@ -41,12 +41,12 @@ I want to propose a digital version so that teacher can easily record the studen
 The layout design is inspired by the app called [Class Dojo](https://www.classdojo.com/en-gb/?redirect=true) where I referred to how students and classes are organised.
 The **colour palette** used are [loud colours](readme/colourPalette.png) to suit kids' preference. 
 The **images** used are cartoon-like especially the student profiles where kids can choose what type of image they can use for their profiles.
-The **font** used is a [Red hat](https://fonts.google.com/specimen/Red+Hat+Text#license) font style. I picked this one because of easy readability for teachers and kids.
+The **font** used is a [Red hat](https://fonts.google.com/specimen/Red+Hat+Text#license) font style. I picked this one because of its playful look and easy readability for teachers and kids.
 
 
 ### Wireframes
 
-Desktop wireframes found [here](https://www.figma.com/proto/cnpk9XUHqG4NUYYtuwLCJz/proj3-sat?node-id=25%3A55&viewport=-46%2C1453%2C0.3348211646080017&scaling=contain) is created to perform in the teacher user's view, student's and parent's view.
+Desktop wireframes found [here](https://www.figma.com/proto/cnpk9XUHqG4NUYYtuwLCJz/proj3-sat?node-id=25%3A55&viewport=-46%2C1453%2C0.3348211646080017&scaling=contain) is created to perform in the teacher user's view, student's and parent's view. It may be different from the deployed as during the usability testing along the way for easier access and navigation.
 
 The link also served as an interactive prototype to test if the database relationship is working.
 
@@ -93,7 +93,7 @@ In this page, the teacher is the only one who can access this page. The user can
 
 #### Search bar
 
-A search bar with a dropdown button that shows **Students** & **Class group** info as hints to user on what categories they can search. 
+A search bar with a dropdown button that shows **Students** & **Class group** info as hints to user on what categories they can search. This was the initial plan but during the usability testing, I decided to move this to be in the center page so that teachers can easily refer to and categories were separated for easier access. This is helpful when shown in mobile 
 
 Here are additional features to be implemented in the future:
 
@@ -123,7 +123,7 @@ Requirements when working with the following:
 pip3 install flask
 ```
 
-- Work with user authentication
+- Work with user authentication. (*This will be develop in the later stage of the project)
 ```
 pip3 install flask-login
 ```
@@ -147,12 +147,11 @@ pip3 install pymongo
 pip3 install python-dotenv
 ``` 
 
-
 - .env file was used to store environment variables so that Flask secret key and database credentials were not publicly viewable.
 
 ## Database Design
 
-Here's the [ER] diagram of this project's data base. 
+**ER** diagram of this project's data base can be access [here]((readme/diagram-SAT.pdf))
 
 Three MongoDB collections were used:
 
@@ -168,66 +167,57 @@ Here are sample database documents for each user
    “last_name: “Rosario”,
    “email”: “teacheragnes@sat.com”,
    “password: “password1234”,
+   "teacher_list": [
+       {
+           “teacher_id”: ObjectId(“123445”),
+           "class_groupId": ObjectId(“123”),
+           "student_id": ObjectId(“333”);
+           "attendance_id": ObjectId("2345345")
+       }
+   ]
  }
 ```
 
-#Teacher’s list 
-```
-{
-  “teacher_id”: ObjectId(“123445”);
-  “class_groupID”: ObjectId(“1111”),
-}
-```
-
-#Class Group
-```
-{
-  “_id”: ObjectId(“123”);
-  “student_id”: (“222”),
-  “clock_in”: 1:00pm,
-  “calendar”: 06Nov2020,
-}
-```
-
-#Student (represents one student)
+#Student (represents one student with embedded documents to access to attendance id)
 ```
 {
    “_id”: ObjectId(“333”);
    “first_name”: “Bennett”,
    “last_name”: “Snerf”,
    “date_of_birth”: 04112010,
+   "attendance": [
+       {
+        "attendance_id": ObjectId("2345345");
+        “clock_in”: 1:00pm,
+        “clock_out”: 6:00pm,
+        “temperature”: 39,
+        “calendar”: 23Nov2020,
+        "remarks": on medical leave
+       },
+       {
+        "attendance_id": ObjectId("5354563");
+        “clock_in”: 1:30pm,
+        “clock_out”: 7:00pm,
+        “temperature”: 36.5,
+        “calendar”: 23Nov2020,
+        "remarks": present
+       },    
+   ]
 }
 ```
 
-#Attendance
+#Parent (represents one parent with embedded document to access to one student profile and attendance)
 ```
 {
-  “student_id”: “333”;
-  “clock_in”: 1:00pm,
-  “clock_out”: 6:00pm,
-  “temperature”: 36.5,
-  “calendar”: 23Nov2020,
-  “class_groupID”: “123”,
-  “remarks”: On medical leave
-}
-```
-
-#Parent  (represents one parent)
-```
-{
-   “_id”: ObjectId(“444”);
-   “first_name: “Bert”,
-   “last_name: “Snerf”,
-   “email”: “mrsnerf@gmail.com”,
-   “password: “password1234”,
-}
-```
-
-#Family
-```
-{
-  “student_id”: “333”;
-  “parent_id”: “444”;
+    “_id”: ObjectId(“444”);
+    “first_name: “Bert”,
+    “last_name: “Snerf”,
+    “email”: “mrsnerf@gmail.com”,
+    “password: “password1234”,
+    "family": [
+        “student_id”: “333”;
+        "attendance_id": ObjectId("2345345);
+    ]
 }
 ```
 
@@ -244,6 +234,8 @@ print(os.environ.get('MONGO_URL'))
 command + shift + readability
 ```
 
+
+#### USER TESTING
 I created 2 user logins for this page, **Teacher** and **Parent**. At this stage of the project, my focus is to get the flow of the website and improve on ux. Authentication will be done on second part of the project.
 
 ### Both users have similar forms to fill up on login and sign up.
@@ -282,7 +274,6 @@ Here are given tasks performed by **Parent** in order to achieve certain goals.
 1. As explained above, sign up is similar to teacher. 
 
 ### 
-
 
 This website is mobile responsive and can be used in mobile and tablets. 
 
