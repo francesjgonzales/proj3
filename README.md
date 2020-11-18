@@ -279,16 +279,52 @@ This website is mobile responsive and can be used in mobile and tablets.
 
 
 ## Deployment
+I created a git repository from github. Here are the steps on how to create
+
+**Create Repository**
+1. Login to [github](https://github.com/)
+2. In main page, click on **New** button found in upper left corner. 
+3. In repository name, type your project name. 
+4. Select as public
+5. In *initialise this repository with*, select **Add a README file**
+6. Click on **Create Repository**
+7. In the created repository, click on **Add file** to upload local files. 
+8. Inside the created repository, I clicked on **Gitpod** where I'm directed to the gitpod page. I worked the entire project in here. 
 
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+**Gitpod workspace**
+1. Go to source control, click the plus sign and type your meaningful commit message and click the tick sign to commit. 
+3. Go to terminal and type `git push`
+4. Go to [github](https://github.com/) account to check.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+**Deploying in Heroku**
+I followed the steps given by our instructor, Paul. 
+1. Create a requirements.txt file and save in main folder.
+2. Sign up for Heroku account [here](www.heroku.com)
+3. Login to Heroku via gitpod main terminal. (*Once you have the access, key in the same account name and password used when signing up for Heroku account.*) 
+4. Create a new app (*where the app-name will be replaced with your own created app.py file*)
+5. Add new remotes 
+6. Install gunicorn
+    - "Procfile" is created and saved in same file as where the app.py file is. 
+    - Inside the file, add in the app filename ensure that text is only 1 line. 
+7. Install requirements file using **pip3 freeze --local > requirements.txt**
+8. Commit everything using the following:
+```
+git add .
+git commit -m "<Commit Message>"
+```
+9. Push to Heroku
+```
+git push heroku master
+```
+10. Go to Heroku
+
+**Heroku**
+1. Go to your assigned app file
+2. In settings, go to Config Vars to add in the Mongo_URL and Secret_key.
+
+My deployed project can be accessed [here]()
 
 
 ## Credits
@@ -311,4 +347,4 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this project from my son's student care. 
