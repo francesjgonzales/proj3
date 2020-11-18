@@ -78,8 +78,8 @@ div.mainImg  {
 
 @media (max-width: 375px) {
   .carousel-caption, div.mainImg {
-    padding-top: 20vh;
-    padding-bottom: 10vh;
+    padding-top: 50vh;
+    padding-bottom: 5vh;
     font-size: small;
     text-align: left, center;
   }
