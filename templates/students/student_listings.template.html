@@ -18,8 +18,10 @@
             <th>Date of Birth</th>
             <th>Clock In</th>
             <th>Clock Out</th>
+            <th>Temparature</th>
             <th>Class Group</th>
             <th>Teacher</th>
+            <th>Remarks</th>
             <th>Attendance</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -31,8 +33,10 @@
             <td>{{each_student.date_of_birth}}</td>
             <td>{{each_student.clock_in}}</td>
             <td>{{each_student.clock_out}}</td>
+            <td>{{each_student.temparature}}</td>
             <td>{{each_student.class_groupId}}</td>
             <td>{{each_student.teacher}}</td><br>
+            <td>{{each_student.remarks}}</td><br>
             <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn">Update </a></td>
             <td><a href="{{ url_for('show_edit_student', student_id=each_student._id) }}" class="btn btn">Edit </a></td>
             <td><a href="{{ url_for('show_confirm_delete', student_id=each_student._id) }}" class="btn btn">Delete </a></td>

@@ -159,7 +159,7 @@ def show_students():
                            all_students=all_students)
 
 
-# CREATE STUDENT
+# CREATE STUDENT MAIN DATABASE
 
 @app.route('/students/create')
 def show_create_student():
@@ -173,8 +173,10 @@ def process_create_student():
     date_of_birth = request.form.get("date_of_birth")
     clock_in = request.form.get("clock_in")
     clock_out = request.form.get("clock_out")
+    temparature = request.form.get("temparature")
     class_groupId = request.form.get("class_groupId")
     teacher = request.form.get("teacher")
+    remarks = request.form.get("remarks")
 
     new_record = {
         "first_name": first_name,
@@ -182,15 +184,17 @@ def process_create_student():
         "date_of_birth": date_of_birth,
         "clock_in": clock_in,
         "clock_out": clock_out,
+        "temparature": temparature,
         "class_groupId": class_groupId,
         "teacher": teacher,
+        "remarks": remarks
     }
 
     db.students.insert_one(new_record)
     return redirect(url_for('show_students'))
 
 
-# UPDATE STUDENT
+# EDIT STUDENT MAIN DATABASE
 
 @app.route('/students/edit/<student_id>')
 def show_edit_student(student_id):
@@ -227,7 +231,7 @@ def process_edit_student(student_id):
     return redirect(url_for('show_students'))
 
 
-# DELETE STUDENT
+# DELETE STUDENT FROM MAIN DATABASE
 
 @app.route('/students/delete/<student_id>')
 def show_confirm_delete(student_id):

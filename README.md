@@ -39,7 +39,7 @@ I want to propose a digital version so that teacher can easily record the studen
 ### Design
 
 The layout design is inspired by the app called [Class Dojo](https://www.classdojo.com/en-gb/?redirect=true) where I referred to how students and classes are organised.
-The **colour palette** used are [loud colours](readme/colourPalette.png) to suit kids' preference. 
+The **colour palette** used are [loud colours](readme/colourPalette.png) to suit kids' preference. (*after usability testing, main purple color was toned down and instead use an orange color to compliment the main color. Also, the final project shows 2 main colors. The secondary colors will be used in further development)
 The **images** used are cartoon-like especially the student profiles where kids can choose what type of image they can use for their profiles.
 The **font** used is a [Red hat](https://fonts.google.com/specimen/Red+Hat+Text#license) font style. I picked this one because of its playful look and easy readability for teachers and kids.
 
@@ -102,6 +102,7 @@ Here are additional features to be implemented in the future:
 - The student profile expansion is used by teachers to update the parents on their children. 
 - An internal chatroom between teacher and parents for one-on-one communication
 
+
 ## Technologies Used
 
 - Figma for wireframing and design
@@ -112,7 +113,7 @@ Here are additional features to be implemented in the future:
 - CSS
 - JavaScript
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for cloud hosted database
-
+- [https://validator.w3.org/]
 
 
 ## Programming Methodologies
@@ -178,7 +179,7 @@ Here are sample database documents for each user
  }
 ```
 
-#Student (represents one student with embedded documents to access to attendance id)
+#Student (represents one student with embedded documents to access to attendance id) 
 ```
 {
    “_id”: ObjectId(“333”);
@@ -309,16 +310,17 @@ I followed the steps given by our instructor, Paul.
     - "Procfile" is created and saved in same file as where the app.py file is. 
     - Inside the file, add in the app filename ensure that text is only 1 line. 
 7. Install requirements file using **pip3 freeze --local > requirements.txt**
-8. Commit everything using the following:
+8. Set python flask debug to False
+9. Commit everything using the following:
 ```
 git add .
 git commit -m "<Commit Message>"
 ```
-9. Push to Heroku
+10. Push to Heroku
 ```
 git push heroku master
 ```
-10. Go to Heroku
+11. Go to Heroku
 
 **Heroku**
 1. Go to your assigned app file
@@ -334,6 +336,7 @@ My deployed project can be accessed [here]()
 - The bootstrap validation form code was copied from [https://mdbootstrap.com/docs/jquery/forms/validation/]
 - Showing current time code was copied from [https://stackoverflow.com/questions/28415178/how-do-you-show-the-current-time-on-a-web-page]
 - Parsing and Formatting Dates in Python with datetime by Pretty Printed [https://www.youtube.com/watch?v=zY02utxcauo]
+- Children's image take from [freepik](https://www.freepik.com/free-photo/funny-boy-genius-wearing-glasses-studio-shot_4745414.htm#page=1&query=asian%20child&position=41)
 
 ### Media
 - The parents icon used in the website is made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

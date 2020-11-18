@@ -50,7 +50,7 @@ mark {
 }
 
 .btn {
-    background-color: rgb(255, 176, 72);
+    background-color: #B8C729;
     color: rgb(59, 11, 114);
 
 }
@@ -72,14 +72,14 @@ mark {
   text-align: left;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 600px) {
 div.carousel-caption {
     padding-bottom: 15vh;
     font-size: small;
     text-align: left, center;
   }
 }
-@media (max-width: 576px) {
+@media (max-width: 600px) {
 div.mainImg{
     padding-top: 15vh;
     padding-bottom: 0vh;

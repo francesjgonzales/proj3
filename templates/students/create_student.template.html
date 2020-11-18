@@ -5,19 +5,15 @@
 
     <div>
         <label class="form-label">First Name</label>
-        <input type="text" class="form-control" name="first_name" />
+        <input type="text" class="form-control" placeholder="First name" name="first_name" />
     </div>
     <div>
         <label class="form-label">Last Name</label>
-        <input type="text" class="form-control" name="last_name" />
+        <input type="text" class="form-control" placeholder="Last name" name="last_name" />
     </div>
     <div>
         <label class="form-label">Date of Birth</label>
         <input id="date_of_birth" type="date" class="form-control" name="date_of_birth"  />
-    </div>
-    <div>
-        <label class="form-label">Class Group</label>
-        <input id="class_groupId" type="text" class="form-control" name="class_groupId"  />
     </div>
     <div>
         <label class="form-label">Clock-in</label>
@@ -28,9 +24,20 @@
         <input id="clock_out" type="time" class="form-control" name="clock_out"  />
     </div>
     <div>
+        <label class="form-label">Temparature</label>
+        <input id="temparature" type="text" class="form-control" placeholder="36.6" name="temparature"  />
+    </div>
+    <div>
+        <label class="form-label">Class Group</label>
+        <input id="class_groupId" type="text" class="form-control" placeholder="Sunflower" name="class_groupId"  />
+    </div>
+    <div>
         <label class="form-label">Teacher</label>
-        <input id="teacher" type="text" class="form-control" name="teacher" />
-        
+        <input id="teacher" type="text" class="form-control" placeholder="Teacher's name" name="teacher" />
+    </div>
+    <div>
+        <label class="form-label">Remarks</label>
+        <input id="remarks" type="text" class="form-control" placeholder="eg. Child is on medical leave" name="remarks" />
     </div>
     <div id="error_message"></div>
     <button type="submit" class="btn btn mt-3">Submit</button>
