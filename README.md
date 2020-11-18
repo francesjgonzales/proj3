@@ -1,4 +1,5 @@
 # Student Attendace Tracker 
+<img src="static/images/website_mockup.jpg" style="margin:0">
 
 A website that help teachers manage student attendance record.
 

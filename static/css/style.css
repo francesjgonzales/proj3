@@ -59,35 +59,52 @@ mark {
 
 }
 
-@media (max-width: 576px) {
-  * {
-    font-size: small;
-    box-sizing: border-box;
-  }
-}
-
 .card {
       margin: 25px;
       text-align: center;
 }
 
 .carousel-caption  {
-  padding-bottom: 35vh;
+  padding-bottom: 40vh;
   text-align: left;
 }
 
-@media (max-width: 600px) {
+/* for mobile size */
+@media (max-width: 382px) {
 div.carousel-caption {
     padding-bottom: 15vh;
     font-size: small;
+    box-sizing: border-box;
     text-align: left, center;
   }
 }
-@media (max-width: 600px) {
+
+@media (max-width: 382px) {
+div.mainImg{
+    padding-top: 1vh;
+    padding-bottom: 0vh;
+    font-size: small;
+    text-align: left, center;
+    box-sizing: border-box;
+  }
+}
+
+/* for tablet size */
+@media (max-width: 768px) {
+div.carousel-caption {
+    padding-bottom: 20vh;
+    font-size: small;
+    box-sizing: border-box;
+    text-align: left, center;
+  }
+}
+
+@media (max-width: 768px) {
 div.mainImg{
     padding-top: 15vh;
     padding-bottom: 0vh;
     font-size: small;
     text-align: left, center;
+    box-sizing: border-box;
   }
 }
