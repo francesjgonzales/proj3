@@ -213,7 +213,7 @@ def process_edit_student(student_id):
     clock_in = request.form.get("clock_in")
     clock_out = request.form.get("clock_out")
     class_groupId = request.form.get("class_groupId")
-    teacher_first_name = request.form.get("teacher_first_name")
+    teacher = request.form.get("teacher")
 
     db.students.update_one({
         "_id": ObjectId(student_id)
@@ -225,7 +225,7 @@ def process_edit_student(student_id):
             "clock_in": clock_in,
             "clock_out": clock_out,
             "class_groupId": class_groupId,
-            "teacher_first_name": teacher_first_name
+            "teacher": teacher
         }
     })
     return redirect(url_for('show_students'))
@@ -257,7 +257,7 @@ def process_edit_student_profile(student_id):
     last_name = request.form.get("last_name")
     date_of_birth = request.form.get("date_of_birth")
     class_groupId = request.form.get("class_groupId")
-    teacher_first_name = request.form.get("teacher_first_name")
+    teacher = request.form.get("teacher")
 
     db.students.update_one({
         "_id": ObjectId(student_id)
@@ -267,7 +267,7 @@ def process_edit_student_profile(student_id):
             "last_name": last_name,
             "date_of_birth": date_of_birth,
             "class_groupId": class_groupId,
-            "teacher_first_name": teacher_first_name
+            "teacher": teacher
         }
     })
     return redirect(url_for('show_student_profile'))
@@ -301,6 +301,8 @@ def process_edit_student_attendance(student_id):
     temparature = request.form.get("temparature")
     clock_in = request.form.get("clock_in")
     clock_out = request.form.get("clock_out")
+    teacher = request.form.get("teacher")
+
     remarks = request.form.get("remarks")
 
     db.students.update_one({
@@ -312,6 +314,7 @@ def process_edit_student_attendance(student_id):
             "temparature": temparature,
             "clock_in": clock_in,
             "clock_out": clock_out,
+            "teacher": teacher,
             "remarks": remarks
         }
     })
@@ -389,4 +392,4 @@ def logout():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
