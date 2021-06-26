@@ -40,6 +40,12 @@ h1, h2, h3, h4, ul, li, p, td, th, .carousel-caption, .invalid-feedback, .btn, .
     font-weight: 700;
 
 }
+.nav-link {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(59, 11, 114);
+    font-weight: 700;
+
+}
 
 .href {
     color: #ffffff;

@@ -18,23 +18,24 @@
 
 <!-- NAV BAR -->
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="/"><h1>SAT</h1></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
+  <a class="navbar-brand" href="#"><p style="font-size: 50px">SAT</p></a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('teacher_login') }}">Teacher Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('parent_login')}}">Parent Login</a>
-      </li>
-    </ul>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-  </div>
-</nav>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav text-right ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('teacher_login') }}">Teacher Login</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('parent_login')}}">Parent Login</a>
+          </li> 
+      </ul>
+  </div>        
+</nav>   
+
+
 
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
