@@ -20,11 +20,6 @@ body {
     text-align: center
 }
 
-.mw-100{
-    filter: brightness(90%);
-
-}
-
 .container2 {
     margin: 15vh;
     padding: 1vh;
@@ -70,24 +65,44 @@ mark {
       text-align: center;
 }
 
-.carousel-caption {
-  padding-top: 10vh;
-  padding-bottom: 40vh;
-  text-align: left;
+.heroImg  {
+  width: 100%;
+  /* position: absolute; */
+  left: 0px;
+  top: 10px;
+  filter: opacity(80%);
+
 }
 
-div.mainImg  {
-  padding-top: 40vh;
-  padding-bottom: 25vh;
-  text-align: left;
-}
-
-@media (max-width: 375px) {
-  .carousel-caption, div.mainImg {
-    padding-top: 40vh;
-    padding-bottom: 5vh;
+@media (min-width: 375px) {
+  .heroImg {
+    top: 60px;
     font-size: small;
-    text-align: left, center;
+    text-align: left;
   }
 }
 
+.heroTxt {
+  color: aliceblue;
+  position: absolute;
+  left: 20vw;
+  top: 20vh;
+}
+
+
+@media (max-width: 768px) {
+  .heroTxt {
+    margin-top: 30vh;
+    font-size: small;
+    text-align: left;
+  }
+}
+
+@media (m-width: 375px) {
+  .heroTxt {
+    /* width: 30vw; */
+    margin-top: 20vh;
+    font-size: small;
+    text-align: left;
+  }
+}
