@@ -5,10 +5,13 @@ A website that help teachers manage student attendance record.
 
 You may access the deployed website [here] (https://fg-proj3-student-attendance.herokuapp.com/). 
 
+**Teacher and Parent sign up and login**, this project don't require user authentication, there's no login details provided. Tester have to key in at least 1 character for all input fields to be able to access it.
  
 ## UX
 
-This website is designed for teachers to register the student, assign them to a class group, track each student's attendance and temperature, and update student records. Teachers will be the main user in this website and in later development, parents will be the secondary user where communication and chat group will be created. This website is for internal use where parents will be given special access by teachers. 
+This website is designed for teachers to register their student, assign them to a class group, track each student's attendance & temperature, and update student's profile. For the purpose of this submission, teachers are able to access the main student database where they can perform tasks like register, edit student profile, update attendance and delete student profile. 
+
+In later development, there will be princicap user which is the manager of student care to access the main student database and control which teachers can perform CRUD tasks. Also parents will be the secondary user where communication and chat group will be created. This website is for internal use where parents will be given special access by teachers. 
 
 
 ### User Story
@@ -52,29 +55,40 @@ Desktop wireframes found [here](https://www.figma.com/proto/cnpk9XUHqG4NUYYtuwLC
 The link also served as an interactive prototype to test if the database relationship is working.
 
 
-## Features
+## Features and User Stories
 
 ### Existing Features
 The website will feature the following
 
-#### Introduction page
+| User Story   |      Features      |  Remarks |
+|----------|:-------------:|------:|
+| Teacher is able to click on the link to SAT app |  Homepage | Pass |
+| Teacher is able to click on **Teacher Sign up** to create an account |    Teacher sign up page   | Pass |
+| Teacher is able to click on **Teacher Login** to login with no authentication required | Teacher login | Pass |
+| Teacher is able to access on **Teacher Main** after logging in or signing up | Teacher Main Page | Pass |
+| Teacher is able to click on **Student Attendance** and update timings in student's attendance | Student Attendance Page | Pass |
+| Teacher is able to edit or delete students' first and last names, class group, temperature and remarks  | Student Attendance Page | Pass |
+| Teacher is able to edit or delete a student's first & last names, date of birth, class group and assigned teacher | Student Profile Page | Pass |
+| Teacher is able to click on **Search page** to search by student's name, class group or teacher  |  Search Page | Pass |
+
+
+
+#### Home page
 
 A one-liner description of the website and the name is shown and accompanied by **Sign up** and **Login** buttons. 
 
 When either buttons clicked, it will go to the next page to determine who is accessing the page, a teacher or a parent. 
 
-
 #### Sign up / Login page
 
-When the user clicked on the desired role, the user will go to this page where:
+When the user clicked on the desired role, the user will go to these pages based on their roles (To implement user authenticaton in later development):
 In **sign up**, they need to key in their names, email and password. 
 
 In **login**, they need to key in their email and password. 
 
-
 #### Teacher's main page
 
-In this page, the user will see the students' list assigned to a specific group. The user can add, edit, update and delete a student profile.
+In this page, the user will see the students' list assigned to a specific group. The user can add, edit, update and delete a student profile and attendance. 
 
 
 #### Parent's main page
@@ -82,15 +96,14 @@ In this page, the user will see the students' list assigned to a specific group.
 In this page, the user will see their child's profile which includes, their names and date of birth and which class group they are assigned to. 
 
 
-#### Student's main page
-
-In this page, the teacher is the only one who can access this page. The user will see the name of the student, date of birth and status of their attendance which is labelled as either 'present' or 'absent'. This list is editable and can be deleted. The user can also add a student's profile here. 
-
-
-#### Attendance page
+#### Student Attendance page
 
 In this page, the teacher is the only one who can access this page. The user can log in the timings of when students comes in and out of the student care. The user can also add in the temparature of each students. If there's a change in the details, the user can click on edit button to update the information. 
 
+
+#### Student Profile page
+
+In this page, the user can edit or delete a student's first and last names, date of birth, assigned class group and teacher. 
 
 #### Search bar
 
@@ -102,6 +115,7 @@ Here are additional features to be implemented in the future:
 - Expand the student profile by adding skills and social development
 - The student profile expansion is used by teachers to update the parents on their children. 
 - An internal chatroom between teacher and parents for one-on-one communication
+- User Authentication for teacher and parent's accounts
 
 
 ## Technologies Used
