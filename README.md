@@ -58,20 +58,7 @@ The link also served as an interactive prototype to test if the database relatio
 ## Features and User Stories
 
 ### Existing Features
-The website will feature the following
-
-| User Story   |      Features      |  Remarks |
-|----------|:-------------:|------:|
-| Teacher is able to click on the link to SAT app |  Homepage | Pass |
-| Teacher is able to click on **Teacher Sign up** to create an account |    Teacher sign up page   | Pass |
-| Teacher is able to click on **Teacher Login** to login with no authentication required | Teacher login | Pass |
-| Teacher is able to access on **Teacher Main** after logging in or signing up | Teacher Main Page | Pass |
-| Teacher is able to click on **Student Attendance** and update timings in student's attendance | Student Attendance Page | Pass |
-| Teacher is able to edit or delete students' first and last names, class group, temperature and remarks  | Student Attendance Page | Pass |
-| Teacher is able to edit or delete a student's first & last names, date of birth, class group and assigned teacher | Student Profile Page | Pass |
-| Teacher is able to click on **Search page** to search by student's name, class group or teacher  |  Search Page | Pass |
-
-
+The website will feature the following:
 
 #### Home page
 
@@ -105,17 +92,66 @@ In this page, the teacher is the only one who can access this page. The user can
 
 In this page, the user can edit or delete a student's first and last names, date of birth, assigned class group and teacher. 
 
-#### Search bar
+#### Search page
 
-A search bar with a dropdown button that shows **Students** & **Class group** info as hints to user on what categories they can search. This was the initial plan but during the usability testing, I decided to move this to be in the center page so that teachers can easily refer to and categories were separated for easier access. This is helpful when shown in mobile 
+A search page with a dropdown button that shows **Students** & **Class group** info as hints to user on what categories they can search. This was the initial plan but during the usability testing, I decided to move this to be in the center page so that teachers can easily refer to and categories were separated for easier access. This is helpful when shown in mobile.
 
-Here are additional features to be implemented in the future:
+#### Mobile Responsiveness
+
+The website can be viewed on mobile and tablet. The tables in student attendance are also responsive with the ability to swipe to right to view the rest of columns. 
+
+
+| User Stories   |      Features      |  Remarks |
+|----------|:-------------:|------:|
+| Teacher is able to click on the link to SAT app |  Homepage | Pass |
+| Teacher is able to click on **Teacher Sign up** to create an account |    Teacher sign up page   | Pass |
+| Teacher is able to click on **Teacher Login** to login with no authentication required | Teacher login | Pass |
+| Teacher is able to access on **Teacher Main** after logging in or signing up | Teacher Main Page | Pass |
+| Teacher is able to click on **Student Attendance** and update timings in student's attendance | Student Attendance Page | Pass |
+| Teacher is able to edit or delete students' first and last names, class group, temperature and remarks  | Student Attendance Page | Pass |
+| Teacher is able to edit or delete a student's first & last names, date of birth, class group and assigned teacher | Student Profile Page | Pass |
+| Teacher is able to click on **Search page** to search by student's name, class group or teacher  |  Search Page | Pass |
+| Parent is able to click on the link to SAT app |  Homepage | Pass |
+| Parent is able to click on **Parent Sign up** to create an account |    Parent sign up page   | Pass |
+| Parent is able to click on **Parent Login** to login with no authentication required | Parent login | Pass |
+| Parent is able to access on **Parent Main** after logging in or signing up | Parent Main Page | Pass |
+| Teacher and Parent to be able to check from the mobile and tablet | Mobile responsiveness | Pass |
+
+
+**Here are additional features to be implemented in the future:**
 
 ### Features Left to Implement
-- Expand the student profile by adding skills and social development
-- The student profile expansion is used by teachers to update the parents on their children. 
-- An internal chatroom between teacher and parents for one-on-one communication
-- User Authentication for teacher and parent's accounts
+
+#### Students skills page
+The teacher can use this page to add, edit and update a student's academic and social development skills. This will help them update the parents. **Part of Teacher & Student pages enhancement**
+
+#### Internal Chatroom page
+An internal chatroom between teacher and parents for a two-way communication about a student's academic and social skills.  This will also help teachers disseminate announcements or news about student care. **Part of Teacher page enhancement**
+
+#### User Authentication
+Teachers and parents user authentication will be implemented. This will verify the identity of users who have signed up and authorise them to access the website. 
+
+#### Parents and Teachers' profiles
+To implement a CRUD on parent and teacher profiles.
+
+#### Parent page enhancement
+To add more features like **status of student's attendance** and **internal chatroom** with teachers.
+
+#### Mobile Responsiveness
+To improve the tables and display the whole content that fits depending on the device.
+
+| User Stories   |      Features      |  Remarks |
+|----------|:-------------:|------:|
+| Teacher to edit or delete his/her profile |  Teacher Profile page | To be implemented |
+| Teacher to log in student's academic and social skills | Student's skills page | To be implemented |
+| Teacher to send out announcement about student care's important dates to parents | Internal Chatroom | To be implemented | 
+| Teacher to send and reply on parent's messages | Internal Chatroom | To be implemented |
+| Teacher to verify account upon sign up via email sent or OTP sent | User Authentication | To be implemented |
+| Parent to edit or delete his/her profile | Parent Profile | To be implemented |
+| Parent to check on child's attendance status on what time they clocked in and clocked out from student care | Parent page | To be implemented |
+| Parent to send a message to teacher about child's attendance | Internal Chatroom | To be implemented | 
+| Parent to view student's academic and social skills sent by Teacher | Student's skills page | To be implemented |
+| Parent and teacher to view student's attendance, student profiles or search results in 1 page without swiping or scrolling | Mobile responsiveness | To be implemented |
 
 
 ## Technologies Used
@@ -252,48 +288,7 @@ command + shift + readability
 
 
 #### USER TESTING
-I created 2 user logins for this page, **Teacher** and **Parent**. At this stage of the project, my focus is to get the flow of the website and improve on ux. Authentication will be done on second part of the project.
-
-### Both users have similar forms to fill up on login and sign up.
-
-Here are given tasks performed by **Teacher** in order to achieve certain goals.
-
-1. Sign up an account (This is similar to parent's sign up too)
-
-   1. CREATE teacher's account to get access to class groups, student list and attendance.
-    - Form includes First and last names of the user, email and password.  
-   2. After signing up, teacher will be lead to **Teacher's profile page**, 
-   
-2. Add a student, access attendance and delete student profile
-
-    Once the teacher get an access, a brief explanation of what this page is about and clickable buttons are shown:
-
-    - **Attendance**, to view the student's profile and attendance. 
-
-        - **Add Student** The teacher adds student profile by filling up form that includes the first and last names, date of birth, Class group and teacher assigned to class group. 
-
-        - **Clock in and clock out** The teacher can input the time on when the student enters and leaves the student care. (*During usability testing, the user thought that she also has to key in the timing during the registration process since these were part of the form.) 
-
-        - **Temparature check** teacher can key in the student's temparature for COVID-19 contract tracing purpose.
-
-        - **Edit** teacher can edit the student profile by editing the registration form, clock in and out and temparatures. 
-
-        - **Delete** Teacher can delete the student's profile which includes, first and last names, date of birth, clock in and out, temparature, class group and teacher.
-
-    - **Search**, to search based on Student name, Class Group and Teacher's name. 
-
-        - **Display Search** The user will see the results based on what they searched about.
-
-### Parents tasks
-Parents have the similar sign up and login method as the teacher. At this stage, they can view their kids profiles. In later development, they can get access to attendance and communicate with teachers on their school updates and social development
-
-### Search bar
-It has 3 search categories, Student's name, Class Group and Teachers name. When the submit button is clicked with blank inputs, it will lead to display page showing the Student's Main Database. If they key in under either of the 3 categories, it will still lead to the display page showing the Student's Main Database. 
-
-For later stage of development, I will sort the display page according to the categories and the Principal or School Manager will only have the private access to the Student Main Database. 
-
-### Mobile Responsive
-This website is mobile responsive and can be used in mobile and tablets. 
+Please refer to **Features and User Stories**.
 
 
 ## Deployment
@@ -349,7 +344,6 @@ My deployed project can be accessed [here](https://fg-proj3-student-attendance.h
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 - The bootstrap validation form code was copied from [https://mdbootstrap.com/docs/jquery/forms/validation/]
 - Showing current time code was copied from [https://stackoverflow.com/questions/28415178/how-do-you-show-the-current-time-on-a-web-page]
 - Parsing and Formatting Dates in Python with datetime by Pretty Printed [https://www.youtube.com/watch?v=zY02utxcauo]
